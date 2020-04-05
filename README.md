@@ -20,10 +20,10 @@ Kitaplık App ile uygulama içerisinde çevrimiçi / çevrim dışı kitap okuya
 Kurulum yapmak için aşağıdaki kodları çalıştırmanız yeterli olacaktır.
 
 ```sh
-$ cd kitaplikApp
-$ npm install
-$ cd ios
-$ cd pod install
+cd kitaplikApp
+npm install
+cd ios
+pod install
 ```
 
 Uygulama içerisinde firebase kurulumu olduğu için kendi hesabınıza bağlamak için google servis dosyasını düzenlemeyi unutmayın.
