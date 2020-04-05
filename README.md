@@ -1,5 +1,4 @@
 # kitaplikApp
-[![Build Status]]
 Kitaplık App ile uygulama içerisinde çevrimiçi / çevrim dışı kitap okuyabilir. Okurken metin üzerinde notlar alabilir ve kitaptan seçilen metinleri sosyal medya üzerinde paylaşabilirsiniz. 
 ### Teknoloji ve Paketler
 
