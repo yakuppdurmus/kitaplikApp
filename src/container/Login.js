@@ -1,14 +1,8 @@
 import React, { Component } from 'react'
-import { View, Dimensions } from 'react-native'
-import { Button, Text, } from 'native-base'
-import { register, login, loginAnonymous } from '../services'
-import { LoginForm } from '../components/LoginForm'
+import { View, } from 'react-native'
+import {  login, loginAnonymous } from '../services'
+import { LoginForm , AppBackground} from '../components';
 
-const screenWidth = Dimensions.get('window').width;
-const screenHeight = Dimensions.get('window').height;
-const borderRadius = 100;
-const backgroundColor1 = "#3498db";
-const opacity = .4;
 
 export class Login extends Component {
     constructor(props){
@@ -38,8 +32,8 @@ export class Login extends Component {
 
     render() {
         return (
-            <View style={{ flex: 1, backgroundColor: '#ddd' }}>
-                {this.renderBackground()}
+            <View style={{ flex: 1, backgroundColor: '#fff' }}>
+                <AppBackground/>
                 <LoginForm
                     lock={this.state.lock}
                     lockAnonymous={this.state.lockAnonymous}
@@ -49,16 +43,6 @@ export class Login extends Component {
                 />
             </View>
         )
-    }
-
-    renderBackground = () => {
-        return <View style={{ width: screenWidth, height: screenHeight, position: 'absolute', justifyContent: 'center', alignItems: 'center' }}>
-            <View style={{ position: 'absolute', width: screenWidth, height: screenWidth + 150, backgroundColor: backgroundColor1, borderRadius: borderRadius / 4, opacity: opacity }} />
-            <View style={{ position: 'absolute', width: screenWidth + 150, height: screenWidth + 150, backgroundColor: backgroundColor1, borderRadius: borderRadius, opacity: opacity, transform: [{ rotate: '45deg' }] }} />
-            <View style={{ position: 'absolute', width: screenWidth, height: screenWidth, backgroundColor: backgroundColor1, borderRadius: borderRadius, opacity: opacity, transform: [{ rotate: '80deg' }] }} />
-            <View style={{ position: 'absolute', width: screenWidth, height: screenWidth, backgroundColor: backgroundColor1, borderRadius: borderRadius, opacity: opacity, transform: [{ rotate: '30deg' }] }} />
-            <View style={{ position: 'absolute', width: screenWidth - 150, height: screenWidth - 150, backgroundColor: backgroundColor1, borderRadius: borderRadius, opacity: opacity, transform: [{ rotate: '80deg' }] }} />
-        </View>
     }
 }
 

@@ -42,8 +42,7 @@ export const LoginForm = ({ onSubmit, lock, onSubmitAnonymous,lockAnonymous,goRe
                 </View>
                 <View style={{flexDirection:'row'}}>
                 <Button style={{flex:1}} onPress={() => goRegister()} transparent full>
-                    {!lockAnonymous && <Text style={{ fontFamily: 'Montserrat-Light' }}>Kayıt Ol</Text>}
-                    <Spinner isVisible={!!lockAnonymous} size={30} type={"Wave"} color={"white"} />
+                    <Text style={{ fontFamily: 'Montserrat-Light' }}>Kayıt Ol</Text>
                 </Button>
                <Text style={{justifyContent:'center',alignSelf:'center',color:'white'}}>|</Text>
                 <Button style={{flex:1}} onPress={() => onSubmitAnonymous()} transparent full>

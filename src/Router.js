@@ -1,13 +1,11 @@
 import React from 'react';
-import { View, Text } from 'react-native';
 import { createAppContainer, createSwitchNavigator, } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
 import { createDrawerNavigator } from "react-navigation-drawer";
 import { createBottomTabNavigator } from 'react-navigation-tabs';
 
 //Components
-import MyDrawer from './components/MyDrawer';
-import MyHeader from './components/MyHeader';
+import { MyDrawer } from './components';
 
 //Container
 import Home from './container/Home';
@@ -21,33 +19,34 @@ import Register from './container/Register';
 
 
 const TabBar = createBottomTabNavigator({
-	Home : {
-		screen : Home,
+	Home: {
+		screen: Home,
 	},
-	Settings : {
-		screen : Settings,
+	Settings: {
+		screen: Settings,
 	},
-	Tab1 : {
-		screen : Tab1,
-	}  
+	Tab1: {
+		screen: Tab1,
+	}
 });
 
 const StackNavigator = createStackNavigator(
 	{
-		TabBar : {
-			screen : TabBar
+		TabBar: {
+			screen: TabBar
 		},
-		MyAccount : {
-			screen : MyAccount
+		MyAccount: {
+			screen: MyAccount
 		},
-		Profile : {
-			screen : Profile
+		Profile: {
+			screen: Profile
 		}
 	},
 	{
 		defaultNavigationOptions: {
-				header: (navigation)=> <MyHeader navigation={navigation} />
-			},
+			// header: (navigation) => <MyHeader  navigation={navigation} />
+			header : null,
+		},
 
 	}
 );
@@ -55,8 +54,8 @@ const StackNavigator = createStackNavigator(
 
 const DrawerNavigator = createDrawerNavigator(
 	{
-		Home : {
-			screen : StackNavigator
+		Home: {
+			screen: StackNavigator
 		}
 	},
 	{
@@ -66,31 +65,31 @@ const DrawerNavigator = createDrawerNavigator(
 
 );
 
-const LoginStack = createStackNavigator (
+const LoginStack = createStackNavigator(
 	{
-		Login : {
-			screen : Login
+		Login: {
+			screen: Login
 		},
-		Register : {
-			screen : Register,
+		Register: {
+			screen: Register,
 		}
 	},
 	{
-		headerMode:'none'
+		headerMode: 'none'
 	}
 );
 
 const PrimarySwitchNavigator = createSwitchNavigator(
 	{
-		LoginStack : {
-			screen : LoginStack
+		LoginStack: {
+			screen: LoginStack
 		},
-		Home : {
-			screen : DrawerNavigator,
+		Home: {
+			screen: DrawerNavigator,
 		}
 	},
 	{
-		headerMode:'none'
+		headerMode: 'none'
 	}
 );
 
