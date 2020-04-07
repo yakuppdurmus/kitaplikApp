@@ -13,8 +13,10 @@ import Login from './container/Login';
 import Settings from './container/Settings';
 import MyAccount from './container/MyAccount';
 import Profile from './container/Profile';
+import Library from './container/Library';
 import Tab1 from './container/Tab1';
 import Register from './container/Register';
+import {CustomTabNav} from './components/CustomTabNav';
 
 
 
@@ -22,13 +24,16 @@ const TabBar = createBottomTabNavigator({
 	Home: {
 		screen: Home,
 	},
-	Settings: {
-		screen: Settings,
+	Library:{
+		screen:Library
 	},
-	Tab1: {
-		screen: Tab1,
+	Profile: {
+		screen: Profile
 	}
-});
+	// Tab1: {
+	// 	screen: Tab1,
+	// }
+},{tabBarComponent: CustomTabNav}, );
 
 const StackNavigator = createStackNavigator(
 	{
@@ -38,9 +43,12 @@ const StackNavigator = createStackNavigator(
 		MyAccount: {
 			screen: MyAccount
 		},
-		Profile: {
-			screen: Profile
-		}
+		Tab1: {
+			screen: Tab1
+		},
+		Settings: {
+			screen: Settings,
+		},
 	},
 	{
 		defaultNavigationOptions: {

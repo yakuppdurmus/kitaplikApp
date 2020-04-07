@@ -4,7 +4,7 @@ import { Left, Right, Body, Icon, Text, } from 'native-base';
 
 export const MyHeader = (props) => {
     return (
-        <View style={{ height: 50, width: '100%', backgroundColor: '#fff', flexDirection: 'row', justifyContent: 'center' }}>
+        <View style={{ height: 50, width: '100%', backgroundColor: '#fff', flexDirection: 'row', justifyContent: 'center',borderBottomWidth:1,borderColor:'#ddd' }}>
             <View style={{ width: 50, justifyContent: 'center', alignItems: 'center', flexDirection: 'row' }}>
                 {props.back ? <Icon onPress={()=>props.navigation.goBack()} name="ios-arrow-back" style={{ color: '#555', paddingLeft: 8, paddingRight: 8, paddingTop: 7.5, paddingBottom: 7.5 }} />
                 :
