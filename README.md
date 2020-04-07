@@ -3,7 +3,7 @@
 Kitaplık App ile uygulama içerisinde çevrimiçi / çevrim dışı kitap okuyabilir. Okurken metin üzerinde notlar alabilir ve kitaptan seçilen metinleri sosyal medya üzerinde paylaşabilirsiniz.
 
 ![Login sayfası ekran görüntüsü](https://github.com/yakuppdurmus/kitaplikApp/blob/master/src/assets/images/login2.png?raw=true)
-![Anasayfa ekran görüntüsü](https://github.com/yakuppdurmus/kitaplikApp/blob/master/src/assets/images/ansayfa2.png?raw=true)
+![Anasayfa ekran görüntüsü](https://raw.githubusercontent.com/yakuppdurmus/kitaplikApp/master/src/assets/images/anasayfa2.png)
 ### Teknoloji ve Paketler
 
 - React Navigation
