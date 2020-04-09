@@ -4,6 +4,7 @@ Kitaplık App ile uygulama içerisinde çevrimiçi / çevrim dışı kitap okuya
 
 ![Login sayfası ekran görüntüsü](https://github.com/yakuppdurmus/kitaplikApp/blob/master/src/assets/images/login2.png?raw=true)
 ![Anasayfa ekran görüntüsü](https://raw.githubusercontent.com/yakuppdurmus/kitaplikApp/master/src/assets/images/anasayfa2.png)
+![Svg ile animasyon yaptım. Welcome sayfasına eklenecek](https://raw.githubusercontent.com/yakuppdurmus/kitaplikApp/master/src/assets/images/welcome.png)
 ### Teknoloji ve Paketler
 
 - React Navigation

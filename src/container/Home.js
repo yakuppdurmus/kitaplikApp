@@ -20,6 +20,7 @@ export class Home extends Component {
                 <Text onPress={() => this.props.navigation.goBack()}> Test Go Back  </Text> */}
 
                     <CardSwiper
+                        ready={false}
                         onPressBookMark={() => { alert('b') }}
                         onPressCard={() => { alert('a') }}
                         items={items}

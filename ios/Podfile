@@ -54,6 +54,9 @@ target 'KitaplikApp' do
   pod 'glog', :podspec => '../node_modules/react-native/third-party-podspecs/glog.podspec'
   pod 'Folly', :podspec => '../node_modules/react-native/third-party-podspecs/Folly.podspec'
 
+
+  pod 'RNSVG', :path => '../node_modules/react-native-svg'
+
   target 'KitaplikAppTests' do
     inherit! :complete
     # Pods for testing
