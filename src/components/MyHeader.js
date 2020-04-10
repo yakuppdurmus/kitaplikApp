@@ -11,7 +11,7 @@ export const MyHeader = ({back,navigation,text,notification}) => {
                 <Icon onPress={()=>navigation.openDrawer()} name="ios-menu" style={{ color: '#555', paddingLeft: 8, paddingRight: 8, paddingTop: 7.5, paddingBottom: 7.5 }} />}
             </View>
             <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-                {text && <Text style={{paddingLeft:20,paddingRight:20}} numberOfLines={1}>{text}</Text>}
+                {text && <Text style={{paddingLeft:20,paddingRight:20,fontSize:24,fontWeight:'500'}} numberOfLines={1}>{text}</Text>}
             </View>
             <View style={{ width: 50, justifyContent: 'center', alignItems: 'center', flexDirection: 'row' }}>
                 {notification && <Icon  type="Feather" name="bell" style={{ color: '#555', paddingLeft: 8, paddingRight: 8, paddingTop: 7.5, paddingBottom: 7.5 }} />}

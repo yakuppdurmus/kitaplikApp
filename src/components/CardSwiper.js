@@ -59,6 +59,23 @@ const CardSwiperItem = ({ item, index }) => {
                         uri: item.image ? item.image : 'https://galeri14.uludagsozluk.com/860/murit-filmi_1992227.jpg',
                     }}
                 />
+                <View style={{flexDirection:'row',position: 'absolute', right: 5,top:5, backgroundColor: 'rgba(255, 255, 255, 0.5)'}}>
+
+                
+                    {item.isFree == false && <View style={{ width: 30, height: 30, justifyContent: 'center', alignItems: 'center', borderRadius: 5, }}>
+                        <Icon style={{ fontSize: 25 }}
+                            type="MaterialIcons" name="money-off" />
+                    </View>}
+                    {item.isListen && <View style={{ width: 30, height: 30, justifyContent: 'center', alignItems: 'center', borderRadius: 5, }}>
+                        <Icon style={{ fontSize: 25 }}
+                            type="MaterialCommunityIcons" name="headphones" />
+                    </View>}
+
+
+                </View>
+
+
+
                 <View style={{ height: 100, padding: 10 }}>
                     <TouchableOpacity
                         onPress={() => onPressBookMark && onPressBookMark(item.id)}

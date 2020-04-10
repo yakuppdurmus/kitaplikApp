@@ -59,15 +59,15 @@ const items = [
         author: "Daniel Pink",
         image: "https://galeri14.uludagsozluk.com/860/murit-filmi_1992227.jpg",
         isListen: true,
-        isFree: true,
-        isBookMark: true,
+        isFree: false,
+        isBookMark: false,
     },
     {
         id: 101,
         title: "Bir ömür nasıl yaşanır?",
         author: "İlber Ortaylı",
         image: "https://mcdn01.gittigidiyor.net/50120/tn50/501202203_tn50_0.jpg",
-        isListen: true,
+        isListen: false,
         isFree: true,
         isBookMark: true,
     },
@@ -76,9 +76,10 @@ const items = [
         title: "Bir ömür nasıl yaşanır?",
         author: "İlber Ortaylı",
         image: "https://mcdn01.gittigidiyor.net/50120/tn50/501202203_tn50_0.jpg",
-        isListen: true,
-        isFree: true,
+        isListen: false,
+        isFree: false,
         isBookMark: true,
+
     },
     {
         id: 103,
@@ -87,6 +88,6 @@ const items = [
         image: "https://mcdn01.gittigidiyor.net/50120/tn50/501202203_tn50_0.jpg",
         isListen: true,
         isFree: true,
-        isBookMark: true,
+        isBookMark: false,
     }
 ]

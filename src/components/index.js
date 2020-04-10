@@ -5,6 +5,8 @@ import { LoginForm } from './LoginForm';
 import { MyDrawer } from './MyDrawer';
 import { MyCard } from './MyCard';
 import { CardSwiper ,ImageSwiper} from './CardSwiper';
+import  WordAnimation from './WordAnimation';
+import  {FabButton} from './FabButton';
 
 export {
     AppBackground,
@@ -14,5 +16,7 @@ export {
     MyDrawer,
     MyCard,
     CardSwiper,
-    ImageSwiper
+    ImageSwiper,
+    WordAnimation,
+    FabButton
 }
