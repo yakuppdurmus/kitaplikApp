@@ -32,8 +32,8 @@ export class Home extends Component {
 
                     <CardSwiper
                         ready={false}
-                        onPressBookMark={() => { alert('b') }}
-                        onPressCard={() => { alert('a') }}
+                        onPressBookMark={(id) => { alert(id) }}
+                        onPressCard={(id) => { this.props.navigation.navigate('BookDetail') }}
                         items={items}
                         title="Ücretsiz"
                     />

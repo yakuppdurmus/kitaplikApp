@@ -30,7 +30,7 @@ export const CardSwiper = ({ items, onPressBookMark, onPressCard, title, categor
                     showsHorizontalScrollIndicator={false}
                     data={items}
                     keyExtractor={(item) => item.index}
-                    renderItem={(item) => CardSwiperItem(item)}
+                    renderItem={(item) => CardSwiperItem(item,onPressBookMark, onPressCard)}
                 />
             </View>
         </View>
@@ -38,7 +38,7 @@ export const CardSwiper = ({ items, onPressBookMark, onPressCard, title, categor
 }
 
 
-const CardSwiperItem = ({ item, index }) => {
+const CardSwiperItem = ({ item, index },onPressBookMark, onPressCard) => {
     return (
         <MyCard key={"cardbox_" + index} style={{ padding: 0, marginLeft: 10, width: 150 }}>
             <TouchableOpacity
@@ -87,7 +87,7 @@ const CardSwiperItem = ({ item, index }) => {
 const screenWidth = Dimensions.get('window').width;
 const boxWidth = screenWidth / 3 - 20;
 
-export const ImageSwiper = ({ items, onPressBookMark, onPressCard, title, categoryId, onPressAll, isAll }) => {
+export const ImageSwiper = ({ items, onPressCard, title, categoryId, onPressAll, isAll }) => {
     return (
         <View style={{ backgroundColor: '#fff', paddingTop: 10, paddingBottom: 20, borderBottomWidth: 1, borderColor: '#ddd' }}>
             <Title title={title} isAll={isAll} categoryId={categoryId} onPressAll={onPressAll} />
@@ -98,14 +98,14 @@ export const ImageSwiper = ({ items, onPressBookMark, onPressCard, title, catego
                     showsHorizontalScrollIndicator={false}
                     data={items}
                     keyExtractor={(item) => item.index}
-                    renderItem={(item) => ImageSwiperItem(item)}
+                    renderItem={(item) => ImageSwiperItem(item,onPressCard)}
                 />
             </View>
         </View>
     )
 }
 
-const ImageSwiperItem = ({ item, index }) => {
+const ImageSwiperItem = ({ item, index }, onPressCard) => {
     return (
         <MyCard key={"cardbox_" + index} style={{ padding: 0, marginLeft: 10, width: boxWidth }}>
             <TouchableOpacity
