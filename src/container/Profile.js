@@ -1,12 +1,26 @@
 import React, { Component } from 'react'
-import { Text, View } from 'react-native'
+import { View, } from 'react-native'
+import { Icon, Text } from 'native-base';
+import { DoubleScreen } from '../components';
+
+
 
 export class Profile extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+        }
+    }
+
+
+
+
+
     render() {
         return (
-            <View style={{justifyContent:'center',alignItems:'center',flex:1}}>
-                <Text> Profile </Text>
-                <Text onPress={()=>this.props.navigation.goBack()}> Go Back  </Text>
+            <View style={{ flex: 1 }}>
+                <DoubleScreen/>
+
             </View>
         )
     }

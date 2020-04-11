@@ -20,6 +20,7 @@ import Tab1 from './container/Tab1';
 import Register from './container/Register';
 import {CustomTabNav} from './components/CustomTabNav';
 import Categories from './container/Categories';
+import Books from './container/Books';
 
 
 
@@ -33,9 +34,6 @@ const TabBar = createBottomTabNavigator({
 	Profile: {
 		screen: Profile
 	}
-	// Tab1: {
-	// 	screen: Tab1,
-	// }
 },{tabBarComponent: CustomTabNav}, );
 
 const StackNavigator = createStackNavigator(
@@ -60,7 +58,10 @@ const StackNavigator = createStackNavigator(
 		},
 		Categories:{
 			screen:Categories
-		}
+		},
+		Books:{
+			screen:Books
+		},
 	},
 	{
 		defaultNavigationOptions: {

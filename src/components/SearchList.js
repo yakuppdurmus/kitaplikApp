@@ -6,9 +6,6 @@ import {WordAnimation} from '../components';
 
 
 export const SearchList = ({ navigation, items, term }) => {
-    // if (term.length >= 3 && items.length == 0) {
-    //     return <View><Text>Aradığını Bulamadık</Text></View>
-    // }
     return (
         <List>
             <FlatList

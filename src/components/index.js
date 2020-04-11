@@ -9,6 +9,8 @@ import  WordAnimation from './WordAnimation';
 import  {FabButton} from './FabButton';
 import  {SearchBar} from './SearchBar';
 import  {SearchList} from './SearchList';
+import  {MyParalax} from './MyParalax';
+import  DoubleScreen from './DoubleScreen';
 
 export {
     AppBackground,
@@ -22,5 +24,7 @@ export {
     WordAnimation,
     FabButton,
     SearchBar,
-    SearchList
+    SearchList,
+    MyParalax,
+    DoubleScreen
 }

@@ -5,6 +5,16 @@ import { Card, CardItem, Body } from 'native-base';
 
 
 export class Home extends Component {
+    constructor(props){
+        super(props);
+        this.state={
+
+        }
+    }
+
+    onPressAll(id){
+        this.props.navigation.navigate('Books');
+    }
 
     render() {
         return (
@@ -35,7 +45,7 @@ export class Home extends Component {
                         title="Kateogirler"
                         isAll
                         categoryId={11}
-                        onPressAll={(data) => { alert(data) }}
+                        onPressAll={(id) => { this.onPressAll(id) }}
                     />
 
                     <CardSwiper
@@ -43,6 +53,8 @@ export class Home extends Component {
                         onPressCard={() => { alert('a') }}
                         items={items}
                         title="Popüler"
+                        isAll
+                        onPressAll={(id)=>this.onPressAll(id)}
                     />
                 </ScrollView>
 

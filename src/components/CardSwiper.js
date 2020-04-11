@@ -20,16 +20,6 @@ const Title = ({ categoryId, title, isAll, onPressAll }) => {
 
 
 export const CardSwiper = ({ items, onPressBookMark, onPressCard, title, categoryId, onPressAll, isAll, ready }) => {
-    // if (!ready) {
-    //     let data = [0, 1, 2];
-    //     return <View style={{flexDirection:'row',paddingTop:7,paddingBottom:7}}>
-    //      {data.map((item, index) => {
-    //         return <MyCard style={{ padding: 0, marginLeft: 10, width: 150, height: 200, }} />
-    //     })}
-    //     </View>
-    // }
-
-
     return (
         <View style={{ backgroundColor: '#fff', paddingTop: 10, paddingBottom: 20, borderBottomWidth: 1, borderColor: '#ddd' }}>
             <Title title={title} isAll={isAll} categoryId={categoryId} onPressAll={onPressAll} />
