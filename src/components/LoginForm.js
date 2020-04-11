@@ -25,6 +25,7 @@ export const LoginForm = ({ onSubmit, lock, onSubmitAnonymous,lockAnonymous,goRe
                     title="Email" />
 
                 <AppInput
+                    reqired
                     secureTextEntry
                     input={password}
                     inputChange={(input) => { setPassword(input) }}

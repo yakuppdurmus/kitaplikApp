@@ -38,7 +38,7 @@ const renderSingle = () => {
 }
 const renderHeader = () => {
     return <View style={{ width: screenWidth, height: screenHeight, position: 'absolute', }}>
-        <View style={{ width: '150%', height: 150,marginTop:-50,marginLeft:-50, backgroundColor: backgroundColor1, opacity: .7,transform:[{rotate:'3deg'}] }} />
-        <View style={{ width: '150%', height: screenHeight,marginTop:0,marginLeft:-50, backgroundColor: backgroundColor2,opacity: .7,transform:[{rotate:'3deg'}] }} />
+        <View style={{ width: '200%', height: 200,marginTop:-50,marginLeft:-150, backgroundColor: backgroundColor2, opacity: .6,transform:[{rotate:'45deg'}] }} />
+        <View style={{ width: '150%', height: screenHeight,marginTop:5,marginLeft:-0, backgroundColor: backgroundColor1,opacity: .6 ,transform:[{rotate:'45deg'}] }} />
     </View>
 }

@@ -6,6 +6,8 @@ export const MyDrawer = (props) => {
         <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
             <Text onPress={() => props.navigation.navigate("Profile")}> Profile </Text>
             <Text onPress={() => props.navigation.navigate("Tab1")}> Tab1 </Text>
+            <Text onPress={() => props.navigation.navigate("Categories")}> Kategoriler </Text>
+            <Text onPress={() => props.navigation.navigate("Login")}> Çıkış Yap </Text>
         </View>
     )
 }
