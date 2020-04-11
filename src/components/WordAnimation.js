@@ -5,6 +5,13 @@ import { Icon } from 'native-base';
 
 const screenWidth = Dimensions.get('window').width
 const boxWidth = screenWidth + 200;
+
+//title
+//onpress
+//topText
+//textStyle
+//text
+
 export class WordAnimation extends Component {
     constructor(props){
         super(props);
@@ -71,13 +78,13 @@ export class WordAnimation extends Component {
                             source={require('../assets/images/word.svg')} />
                     </Animated.View>
                     <TouchableOpacity onPress={this.props.onPress} style={{ position: 'absolute', transform: [{ rotate: '-10deg' }], zIndex: 1, top: boxWidth / 2 - 50, left: boxWidth / 2 - 100, width: 200, height: 100 }}>
-                        <Text style={{ fontSize: 18 }}>Kitap Dünyası</Text>
+                        <Text style={{ fontSize: 18 }}>{this.props.topText ? this.props.topText : "Kitap Dünyası"}</Text>
                         <View style={{ width: '100%', alignItems: 'center', borderBottomWidth: 3, borderTopWidth: 3, marginTop: 5, marginBottom: 5 }}>
                             <Text style={{ fontSize: 38 }}>{this.props.title ? this.props.title : "Kitaplık App"}</Text>
                         </View>
                         <View style={{}}>
                         <Icon style={{position:'absolute',color:'#777',marginLeft:10}} name="warning"/>
-                        <Text style={{ fontSize: 18, textAlign: 'center',color:'#333',fontSize:14 }}>{"Kitaplıkta hiç kitap\nbulamadık!"}</Text>
+                        <Text style={Object.assign({ fontSize: 18, textAlign: 'center',color:'#333',fontSize:14 },this.props.textStyle)}>{this.props.text ? this.props.text : "Kitaplıkta hiç kitap\nbulamadık!"}</Text>
                         </View>
                     </TouchableOpacity>
                 </Animated.View>

@@ -11,12 +11,15 @@ import { MyDrawer } from './components';
 import Home from './container/Home';
 import Login from './container/Login';
 import Settings from './container/Settings';
+import Search from './container/Search';
+import Notification from './container/Notification';
 import MyAccount from './container/MyAccount';
 import Profile from './container/Profile';
 import Library from './container/Library';
 import Tab1 from './container/Tab1';
 import Register from './container/Register';
 import {CustomTabNav} from './components/CustomTabNav';
+import Categories from './container/Categories';
 
 
 
@@ -49,6 +52,15 @@ const StackNavigator = createStackNavigator(
 		Settings: {
 			screen: Settings,
 		},
+		Search: {
+			screen: Search,
+		},
+		Notification: {
+			screen: Notification,
+		},
+		Categories:{
+			screen:Categories
+		}
 	},
 	{
 		defaultNavigationOptions: {
@@ -89,6 +101,9 @@ const LoginStack = createStackNavigator(
 
 const PrimarySwitchNavigator = createSwitchNavigator(
 	{
+		// LoginStack: {
+		// 	screen: Categories
+		// },
 		LoginStack: {
 			screen: LoginStack
 		},

@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Text, View,SafeAreaView } from 'react-native'
+import { Text, View } from 'react-native'
 import Router from './Router';
 
 //Custome Theme Variable
@@ -11,9 +11,7 @@ export class Container extends Component {
     render() {
         return (
             <StyleProvider style={getTheme(customTheme)}>
-                <SafeAreaView style={{flex:1}}>
                 <Router />
-                </SafeAreaView>
             </StyleProvider>
         )
     }

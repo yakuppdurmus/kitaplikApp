@@ -7,6 +7,8 @@ import { MyCard } from './MyCard';
 import { CardSwiper ,ImageSwiper} from './CardSwiper';
 import  WordAnimation from './WordAnimation';
 import  {FabButton} from './FabButton';
+import  {SearchBar} from './SearchBar';
+import  {SearchList} from './SearchList';
 
 export {
     AppBackground,
@@ -18,5 +20,7 @@ export {
     CardSwiper,
     ImageSwiper,
     WordAnimation,
-    FabButton
+    FabButton,
+    SearchBar,
+    SearchList
 }

@@ -13,6 +13,7 @@ export class Home extends Component {
                     navigation={this.props.navigation}
                     text="Anasayfa"
                     notification
+                    search
                 />
                 <ScrollView>
                     {/* <Text onPress={() => { }}> Home Page </Text>
