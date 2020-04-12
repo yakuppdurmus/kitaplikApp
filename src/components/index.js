@@ -12,6 +12,8 @@ import  {SearchList} from './SearchList';
 import  {MyParalax} from './MyParalax';
 import  DoubleScreen from './DoubleScreen';
 import  {HashButton} from './HashButton';
+import  {BookItem} from './BookItem';
+import  {FullButton} from './FullButton';
 
 export {
     AppBackground,
@@ -29,4 +31,6 @@ export {
     MyParalax,
     DoubleScreen,
     HashButton,
+    BookItem,
+    FullButton
 }

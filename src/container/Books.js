@@ -1,29 +1,21 @@
 import React, { Component } from 'react'
 import { View, FlatList } from 'react-native'
-import { MyParalax,WordAnimation } from '../components';
+import { MyParalax,WordAnimation, BookItem } from '../components';
 import { List, ListItem, Thumbnail, Text, Left, Body, Right, Button, } from 'native-base';
 
 
 export class Books extends Component {
 
-    SearchEmpty = () => {
+    renderEmpty = () => {
         return <WordAnimation topText="Kitap App" title="Üzgünüm" text="Aradığını bulamadım" textStyle={{ lineHeight: 30, paddingLeft: 20 }} />
     }
-    SearchBottomButton = () => {
+    renderBottomButton = () => {
         return <Button full style={{ marginLeft: 10, marginRight: 10, borderRadius: 5 }}><Text>Tümünü Gör</Text></Button>
     }
 
-    SearchListRenderItem = ({item,index}) => {
+    renderListRenderItem = ({item,index}) => {
         return (
-            <ListItem key={"key_"+index} thumbnail style={{ marginBottom: 10 }}>
-                <Left>
-                    <Thumbnail style={{ width: 80, height: 80 }} square source={require('../assets/images/bg1.jpg')} />
-                </Left>
-                <Body>
-                    <Text>Kitap Adı</Text>
-                    <Text note numberOfLines={1}>Its time to build a difference . .</Text>
-                </Body>
-            </ListItem>
+           <BookItem/>
         )
     }
 
@@ -45,8 +37,8 @@ export class Books extends Component {
                             contentContainerStyle={{ paddingTop: 5, paddingBottom: 20 }}
                             data={items}
                             keyExtractor={(item) => item.index}
-                            ListEmptyComponent={() => items.length == 0 && this.SearchEmpty()}
-                            renderItem={(item) => this.SearchListRenderItem(item)} />
+                            ListEmptyComponent={() => items.length == 0 && this.renderEmpty()}
+                            renderItem={(item) => this.renderListRenderItem(item)} />
                     </List>
 
                 </MyParalax>

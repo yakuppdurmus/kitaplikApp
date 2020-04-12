@@ -35,7 +35,7 @@ export class Profile extends Component {
                         <RenderItem text="Gizlilik" iconName="security" />
                         <RenderItem text="Sözleşme" iconName="assignment" />
                         <RenderItem text="Sıkça Sorulan Sorular" iconType="AntDesign" iconName="questioncircleo" />
-                        <RenderItem text="Geri Bildirim" iconType="FontAwesome" iconName="pencil-square-o" />
+                        <RenderItem text="Geri Bildirim" rightIconType="Feather" rightIconName="external-link" iconType="FontAwesome" iconName="pencil-square-o" />
                         <RenderItem text="Uygulama Dili" iconName="language" />
                         {/* <RenderItem text="Dosyaları Otomatik Olarak İndir" description value="Bu seçenek ile dosyaları otomatik olarak internetten indirebilir dilediğiniz zaman internet olmadan uygulama içerisinde gezinerek kitap okuyabilirsiniz. (İnternet kullanımını arttırır)" /> */}
                     </View>
@@ -48,13 +48,13 @@ export class Profile extends Component {
                     </View>
 
                     <RenderItem type="title" text="Uygulama Hakkında" />                    
-                    <View style={{backgroundColor:'white',paddingTop:10,justifyContent:'center',alignItems:'center'}}>
-                        <Text style={{color:'#aaa',fontSize:12,textAlign:'center'}}>www.kitaplikapp.com{"\n"}Copyright(2020)</Text>
+                    <View style={{backgroundColor:'white',padding:10,justifyContent:'center',alignItems:'center'}}>
                         <Image
                         style={{width:'100%',height:50}}
                         resizeMode="contain"
                         source={require('../assets/images/Logo.png')}
                         />
+                        <Text style={{color:'#aaa',fontSize:12,textAlign:'center'}}>kitaplikapp.com{"\n"}Copyright(2020)</Text>
 
                     </View>
                 </ScrollView>
@@ -66,7 +66,7 @@ export class Profile extends Component {
 
 export default Profile
 
-export const RenderItem = ({ text, value, type, iconType, iconName, description }) => {
+export const RenderItem = ({ text, value, type, iconType, iconName, description,rightIconName,rightIconType }) => {
     if (type == "title")
         return (
             <ListItem icon>
@@ -77,14 +77,16 @@ export const RenderItem = ({ text, value, type, iconType, iconName, description 
         )
 
     return (
-        <ListItem icon>
+        <ListItem icon onPress={()=>{}}>
             {iconName && <Left><Icon type={iconType ? iconType : "MaterialIcons"} style={{ color: "#f03a3a", width: 32, marginLeft: -5, marginRight: -10, fontSize: 23 }} active name={iconName} /></Left>}
             <Body>
                 <Text>{text}</Text>
             </Body>
             <Right>
                 <Text style={{ fontSize: 14 }}>{value}</Text>
+                {rightIconName && <Icon type={rightIconType ? rightIconType : "MaterialIcons"} style={{ color: "#f03a3a", width: 32, marginLeft: -5, marginRight: 0, fontSize: 23 }} active name={rightIconName} />}
             </Right>
+
         </ListItem>
     )
 }
