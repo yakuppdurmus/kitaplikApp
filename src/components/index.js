@@ -11,6 +11,7 @@ import  {SearchBar} from './SearchBar';
 import  {SearchList} from './SearchList';
 import  {MyParalax} from './MyParalax';
 import  DoubleScreen from './DoubleScreen';
+import  {HashButton} from './HashButton';
 
 export {
     AppBackground,
@@ -26,5 +27,6 @@ export {
     SearchBar,
     SearchList,
     MyParalax,
-    DoubleScreen
+    DoubleScreen,
+    HashButton,
 }

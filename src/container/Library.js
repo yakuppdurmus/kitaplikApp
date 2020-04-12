@@ -18,6 +18,8 @@ export class Library extends Component {
         return (
             <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
                 <MyHeader
+                search
+                notification
                 navigation={this.props.navigation}
                 text={"Kütüphane"}
                 />
