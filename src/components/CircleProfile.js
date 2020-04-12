@@ -26,12 +26,13 @@ export const CircleProfile = ({ boxSmallWidth, boxWidth, marginLeft, profile }) 
     const _boxWidthr = _boxWidth / 2;
     const _boxSubWidth = _boxWidth * .8;
     const _boxSmallWidthr = _boxSmallWidth / 2;
-    const image = require('../assets/images/bg1.jpg');
+    // const image = require('../assets/images/bg1.jpg');
     return (
         <ImageBackground 
         style={{ flex: 1 }} 
         blurRadius={10}
-        source={image}>
+        // source={image}
+        >
             
             <View
                 style={{

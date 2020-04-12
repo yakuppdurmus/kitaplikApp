@@ -15,7 +15,7 @@ export class Container extends Component {
                 <StyleProvider style={getTheme(customTheme)}>
                     <Router />
                 </StyleProvider>
-                <FlashMessage style={{}} ref="refFlashMessage" position="top" />
+                <FlashMessage an titleStyle={{fontSize:30,height:500}} style={{height:100}} textStyle={{height:500}} ref="refFlashMessage" position="top" />
             </View>
         )
     }

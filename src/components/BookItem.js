@@ -5,7 +5,7 @@ export const BookItem = ({name,description,image}) =>{
     return(
         <ListItem thumbnail style={{ marginBottom: 10 }}>
             <Left>
-                <Image style={{ width: 80, height: 80,borderRadius:5 }} source={require('../assets/images/bg1.jpg')} />
+                {/* <Image style={{ width: 80, height: 80,borderRadius:5 }} source={require('../assets/images/bg1.jpg')} /> */}
             </Left>
             <Body>
                 <Text>{name ? name : "Kitap Adı"}</Text>

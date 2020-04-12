@@ -52,7 +52,7 @@ export class Profile extends Component {
                         <Image
                         style={{width:'100%',height:50}}
                         resizeMode="contain"
-                        source={require('../assets/images/Logo.png')}
+                        // source={require('../assets/images/Logo.png')}
                         />
                         <Text style={{color:'#aaa',fontSize:12,textAlign:'center'}}>kitaplikapp.com{"\n"}Copyright(2020)</Text>
 

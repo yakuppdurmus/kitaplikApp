@@ -75,7 +75,8 @@ export class WordAnimation extends Component {
                         <SvgUri
                             width={boxWidth}
                             height={boxWidth}
-                            source={require('../assets/images/word.svg')} />
+                            // source={require('../assets/images/word.svg')}
+                             />
                     </Animated.View>
                     <TouchableOpacity onPress={this.props.onPress} style={{ position: 'absolute', transform: [{ rotate: '-10deg' }], zIndex: 1, top: boxWidth / 2 - 50, left: boxWidth / 2 - 100, width: 200, height: 100 }}>
                         <Text style={{ fontSize: 18 }}>{this.props.topText ? this.props.topText : "Kitap Dünyası"}</Text>

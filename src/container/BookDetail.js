@@ -8,7 +8,7 @@ const BookItem = () => {
     return (
         <View style={{ flexDirection: 'row' }}>
             <Image
-                source={require('../assets/images/bg1.jpg')}
+                // source={require('../assets/images/bg1.jpg')}
                 style={{ width: 100, height: 100, borderRadius: 5 }}
             />
             <View style={{ flex: 1, justifyContent: 'space-around', paddingLeft: 10 }}>
