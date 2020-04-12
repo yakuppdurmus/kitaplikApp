@@ -6,13 +6,17 @@ import Router from './Router';
 import { StyleProvider } from 'native-base'
 import getTheme from './assets/native-base-theme/components';
 import customTheme from './assets/native-base-theme/variables/customTheme';
+import FlashMessage from "react-native-flash-message";
 
 export class Container extends Component {
     render() {
         return (
-            <StyleProvider style={getTheme(customTheme)}>
-                <Router />
-            </StyleProvider>
+            <View style={{ flex: 1 }}>
+                <StyleProvider style={getTheme(customTheme)}>
+                    <Router />
+                </StyleProvider>
+                <FlashMessage style={{}} ref="refFlashMessage" position="top" />
+            </View>
         )
     }
 }

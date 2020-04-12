@@ -1,18 +1,18 @@
 import React, { Component } from 'react'
 import { Text, View, ScrollView } from 'react-native';
-import { MyHeader, CardSwiper, ImageSwiper } from '../components';
-import { Card, CardItem, Body } from 'native-base';
+import { MyHeader, CardSwiper, ImageSwiper, Banner } from '../components';
+import { showMessage, hideMessage } from "react-native-flash-message";
 
 
 export class Home extends Component {
-    constructor(props){
+    constructor(props) {
         super(props);
-        this.state={
+        this.state = {
 
         }
     }
 
-    onPressAll(id){
+    onPressAll(id) {
         this.props.navigation.navigate('Books');
     }
 
@@ -30,32 +30,46 @@ export class Home extends Component {
                 <Text onPress={() => { this.props.navigation.navigate('Login') }}> Logout </Text>
                 <Text onPress={() => this.props.navigation.goBack()}> Test Go Back  </Text> */}
 
+                    <Banner url={"https://turkagram.com/wp-content/uploads/2017/03/kitap-ve-cay-keyfi-cocukyetistirmebilgeligi-aslidalan-cocukpsikolojisi-kitap.jpeg"} />
                     <CardSwiper
                         ready={false}
-                        onPressBookMark={(id) => { alert(id) }}
+                        onPressBookMark={(id) => { 
+                            
+                            showMessage({
+                            message: "Favorilere Eklendi",
+                            type: "info",
+                          }); }
+                        }
                         onPressCard={(id) => { this.props.navigation.navigate('BookDetail') }}
                         items={items}
                         title="Ücretsiz"
                     />
 
+                    <Banner url={"https://image.freepik.com/free-photo/open-book-with-glasses-wooden-table-against-background-set-books-vintage-toning_101969-514.jpg"} />
+
                     <ImageSwiper
-                        onPressBookMark={() => { alert('b') }}
-                        onPressCard={() => { alert('a') }}
+                        onPressCard={() => { this.props.navigation.navigate('Books') }}
                         items={items}
-                        title="Kateogirler"
+                        title="Kategoriler"
                         isAll
                         categoryId={11}
-                        onPressAll={(id) => { this.onPressAll(id) }}
+                        onPressAll={(id) => { this.props.navigation.navigate('Library') }}
                     />
 
+
+
                     <CardSwiper
-                        onPressBookMark={() => { alert('b') }}
-                        onPressCard={() => { alert('a') }}
+                        onPressBookMark={() => {  showMessage({
+                            message: "Simple message",
+                            type: "info",
+                          }); }}
+                        onPressCard={() => { this.props.navigation.navigate('BookDetail') }}
                         items={items}
                         title="Popüler"
                         isAll
-                        onPressAll={(id)=>this.onPressAll(id)}
+                        onPressAll={(id) => this.onPressAll(id)}
                     />
+
                 </ScrollView>
 
             </View>
@@ -63,7 +77,7 @@ export class Home extends Component {
     }
 }
 
-export default Home
+export default Home;
 
 const items = [
     {

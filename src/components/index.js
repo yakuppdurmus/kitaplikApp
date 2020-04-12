@@ -14,6 +14,7 @@ import  DoubleScreen from './DoubleScreen';
 import  {HashButton} from './HashButton';
 import  {BookItem} from './BookItem';
 import  {FullButton} from './FullButton';
+import  {Banner} from './Banner';
 
 export {
     AppBackground,
@@ -32,5 +33,6 @@ export {
     DoubleScreen,
     HashButton,
     BookItem,
-    FullButton
+    FullButton,
+    Banner
 }
