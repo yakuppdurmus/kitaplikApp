@@ -1,11 +1,12 @@
 import React from 'react';
 import {ListItem,Left,Text,Body} from 'native-base';
 import {Image} from 'react-native'
+import {imageUrl} from '../services/config'
 export const BookItem = ({name,description,image}) =>{
     return(
         <ListItem thumbnail style={{ marginBottom: 10 }}>
             <Left>
-                <Image style={{ width: 80, height: 80,borderRadius:5 }} source={require('../assets/images/bg1.jpg')} />
+                <Image style={{ width: 80, height: 80,borderRadius:5 }} source={{uri:imageUrl+'eldiven.jpg'}} />
             </Left>
             <Body>
                 <Text>{name ? name : "Kitap Adı"}</Text>

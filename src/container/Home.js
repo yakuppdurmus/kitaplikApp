@@ -1,9 +1,10 @@
 import React, { Component } from 'react'
-import { Text, View, ScrollView } from 'react-native';
+import { Text, View, ScrollView,Dimensions} from 'react-native';
 import { MyHeader, CardSwiper, ImageSwiper, Banner } from '../components';
 import { showMessage, hideMessage } from "react-native-flash-message";
-
-
+import {imageUrl} from '../services/config'
+const screenWidth=Dimensions.get('screen').width;
+const screenHeight=Dimensions.get('screen').height;
 export class Home extends Component {
     constructor(props) {
         super(props);
@@ -26,11 +27,9 @@ export class Home extends Component {
                     search
                 />
                 <ScrollView>
-                    {/* <Text onPress={() => { }}> Home Page </Text>
-                <Text onPress={() => { this.props.navigation.navigate('Login') }}> Logout </Text>
-                <Text onPress={() => this.props.navigation.goBack()}> Test Go Back  </Text> */}
 
-                    <Banner url={"https://turkagram.com/wp-content/uploads/2017/03/kitap-ve-cay-keyfi-cocukyetistirmebilgeligi-aslidalan-cocukpsikolojisi-kitap.jpeg"} />
+                    <Banner url={imageUrl+"kitap-kahve.jpg"} />
+                    
                     <CardSwiper
                         ready={false}
                         onPressBookMark={(id) => { 
@@ -45,7 +44,8 @@ export class Home extends Component {
                         title="Ücretsiz"
                     />
 
-                    <Banner url={"https://image.freepik.com/free-photo/open-book-with-glasses-wooden-table-against-background-set-books-vintage-toning_101969-514.jpg"} />
+                    <Banner url={imageUrl+"kitap.jpg"} />
+                    <Banner onPress={()=>this.props.navigation.navigate('Categories')} containerStyle={{padding:10}} title="Okumaya Başla" text="- D. Scilus"  subTitle="Kitaplıklar aklın tedavi yerleridir." imageStyle={{width:screenWidth,height:screenWidth/1061*800}} url={imageUrl+'acik-kitap.jpg'} />
 
                     <ImageSwiper
                         onPressCard={() => { this.props.navigation.navigate('Books') }}
@@ -84,7 +84,7 @@ const items = [
         id: 100,
         title: "Ne Zaman?",
         author: "Daniel Pink",
-        image: "https://galeri14.uludagsozluk.com/860/murit-filmi_1992227.jpg",
+        image: imageUrl+'film.jpg',
         isListen: true,
         isFree: false,
         isBookMark: false,
@@ -93,7 +93,7 @@ const items = [
         id: 101,
         title: "Bir ömür nasıl yaşanır?",
         author: "İlber Ortaylı",
-        image: "https://mcdn01.gittigidiyor.net/50120/tn50/501202203_tn50_0.jpg",
+        image: imageUrl+'eldiven.jpg',
         isListen: false,
         isFree: true,
         isBookMark: true,
@@ -102,7 +102,7 @@ const items = [
         id: 102,
         title: "Bir ömür nasıl yaşanır?",
         author: "İlber Ortaylı",
-        image: "https://mcdn01.gittigidiyor.net/50120/tn50/501202203_tn50_0.jpg",
+        image: imageUrl+'eldiven.jpg',
         isListen: false,
         isFree: false,
         isBookMark: true,
@@ -112,7 +112,7 @@ const items = [
         id: 103,
         title: "Bir ömür nasıl yaşanır?",
         author: "İlber Ortaylı",
-        image: "https://mcdn01.gittigidiyor.net/50120/tn50/501202203_tn50_0.jpg",
+        image: imageUrl+'eldiven.jpg',
         isListen: true,
         isFree: true,
         isBookMark: false,

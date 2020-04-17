@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { View, FlatList } from 'react-native'
 import { MyParalax,WordAnimation, BookItem } from '../components';
 import { List, ListItem, Thumbnail, Text, Left, Body, Right, Button, } from 'native-base';
-
+import {imageUrl} from '../services/config'
 
 export class Books extends Component {
 
@@ -20,7 +20,7 @@ export class Books extends Component {
     }
 
     render() {
-        const imageUrl = "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcR649JrXgh93mAuyxKu6sQOybUTLwW17uRPonlbLg1T-LyHgN-T&usqp=CAU;"
+        const ImageUrl = imageUrl+"booksheader.jpg";
         const items= [1,2,3,4,5,6,7,8,9,0,11,12,13];
         return (
             <View style={{ flex: 1 }}>
@@ -29,7 +29,7 @@ export class Books extends Component {
                     title="Popüler Kitaplar"
                     titleStyle={{}}
                     titleContainerStyle={{ backgroundColor: 'rgba(0,0,0,0.4)'}}
-                    image={imageUrl}>
+                    image={ImageUrl}>
 
 
                     <List>

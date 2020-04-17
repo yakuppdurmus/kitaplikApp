@@ -4,6 +4,7 @@ import { Container, Header, Content, Button, ListItem, Text, Icon, Left, Body, R
 
 import { DoubleScreen, MyHeader } from '../components';
 import { ScrollView } from 'react-native-gesture-handler';
+import {imageUrl} from '../services/config';
 
 
 
@@ -52,7 +53,7 @@ export class Profile extends Component {
                         <Image
                         style={{width:'100%',height:50}}
                         resizeMode="contain"
-                        source={require('../assets/images/Logo.png')}
+                        source={{url:imageUrl+'Logo.png'}}
                         />
                         <Text style={{color:'#aaa',fontSize:12,textAlign:'center'}}>kitaplikapp.com{"\n"}Copyright(2020)</Text>
 

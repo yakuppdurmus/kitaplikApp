@@ -2,13 +2,15 @@ import React, { Component } from 'react'
 import { View, Image, TouchableOpacity, ScrollView } from 'react-native'
 import { Text, Button } from 'native-base'
 import { MyHeader, HashButton, FullButton } from '../components'
+import {imageUrl} from '../services/config'
 
 
 const BookItem = () => {
     return (
         <View style={{ flexDirection: 'row' }}>
+            {console.log(imageUrl+'bg1-50.jpg')}
             <Image
-                source={require('../assets/images/bg1.jpg')}
+                source={{uri:imageUrl+'placeholder.jpg'}}
                 style={{ width: 100, height: 100, borderRadius: 5 }}
             />
             <View style={{ flex: 1, justifyContent: 'space-around', paddingLeft: 10 }}>

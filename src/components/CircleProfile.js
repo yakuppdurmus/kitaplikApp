@@ -1,6 +1,7 @@
 import React from 'react';
 import { View, Dimensions, TouchableOpacity, ImageBackground,Image } from 'react-native';
 import { Icon, Text } from 'native-base'
+import {imageUrl} from '../services/config'
 const screenWidth = Dimensions.get('window').width;
 const screenHeight = Dimensions.get('window').height;
 
@@ -26,7 +27,7 @@ export const CircleProfile = ({ boxSmallWidth, boxWidth, marginLeft, profile }) 
     const _boxWidthr = _boxWidth / 2;
     const _boxSubWidth = _boxWidth * .8;
     const _boxSmallWidthr = _boxSmallWidth / 2;
-    const image = require('../assets/images/bg1.jpg');
+    const image = {uri:imageUrl+'bg1-50.jpg'}
     return (
         <ImageBackground 
         style={{ flex: 1 }} 

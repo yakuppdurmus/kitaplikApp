@@ -2,7 +2,7 @@ import React from 'react'
 import { View, Image, TouchableOpacity, Dimensions, FlatList } from 'react-native';
 import { MyCard } from './index';
 import { Text, Icon } from 'native-base'
-
+import {imageUrl} from '../services/config'
 
 const Title = ({ categoryId, title, isAll, onPressAll }) => {
     return (
@@ -46,7 +46,7 @@ const CardSwiperItem = ({ item, index },onPressBookMark, onPressCard) => {
                 <Image
                     style={{ width: 150, height: 150, borderTopRightRadius: 5, borderTopLeftRadius: 5 }}
                     source={{
-                        uri: item.image ? item.image : 'https://galeri14.uludagsozluk.com/860/murit-filmi_1992227.jpg',
+                        uri: item.image ? item.image : imageUrl+'film.jpg',
                     }}
                 />
                 <View style={{flexDirection:'row',position: 'absolute', right: 5,top:5, backgroundColor: 'rgba(255, 255, 255, 0.5)'}}>
@@ -114,7 +114,7 @@ const ImageSwiperItem = ({ item, index }, onPressCard) => {
                 <Image
                     style={{ width: boxWidth, height: boxWidth, borderRadius: 5, opacity: .5 }}
                     source={{
-                        uri: item.image ? item.image : 'https://galeri14.uludagsozluk.com/860/murit-filmi_1992227.jpg',
+                        uri: item.image ? item.image : imageUrl+'film.jpg',
                     }}
                 />
                 <Text style={{ position: 'absolute', color: 'white', zIndex: 3, paddingTop: 5, width: '100%', fontWeight: '700' }}>{item.title}</Text>
