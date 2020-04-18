@@ -1,17 +1,50 @@
 import React from 'react'
-import { Text, View } from 'react-native'
-
-const onPress= (navigation,screen)=>{
+import { Text, View ,Image} from 'react-native'
+import {ListItem, Item} from 'native-base'
+import {imageUrl} from '../services/config'
+const onPress = (navigation, screen) => {
     navigation.navigate(screen);
 }
 
-export const MyDrawer = ({navigation}) => {
+export const MyDrawer = ({ navigation }) => {
     return (
-        <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-            <Text onPress={() => onPress(navigation,'Profile')}> Profile </Text>
-            <Text onPress={() => onPress(navigation,'Tab1')}> Tab1 </Text>
-            <Text onPress={() => onPress(navigation,'Categories')}> Kategoriler </Text>
-            <Text onPress={() => onPress(navigation,'Login')}> Çıkış Yap </Text>
+        <View style={{ flex: 1 }}>
+            <View style={{ width:'103%',marginLeft:'-2.3%',marginTop:-70,backgroundColor: '#bdc3c7', height: 300, transform: [{ rotateZ: '10deg' }, { skewX: '0deg' }] }} />
+            <View style={{ borderWidth: 0, borderColor: 'white',justifyContent:'center',alignItems:'center', backgroundColor: '#fff', width: 200, height: 200, borderRadius: 100, marginTop: -100, alignSelf: 'center' }}>
+            <Image style={{borderWidth:0,width:188,height:188,borderRadius:100,margin:6}} resizeMode="cover" source = {{uri:imageUrl + "placeholder.jpg"}} />
+            {/* <Text style={{color:'#2c3e50',fontWeight:'bold',fontSize:70}}>YD</Text> */}
+            </View>
+
+            <View style={{marginBottom:50}}>
+
+            <ListItem>
+                <Text style={{fontWeight:'bold',fontSize:20}}>İstatistik Pencerem</Text>
+            </ListItem>
+            <ListItem>
+                <Text>19 Kitap</Text>
+            </ListItem>
+            <ListItem>
+                <Text>156 Sayfa</Text>
+            </ListItem>
+            <ListItem>
+                <Text>1021021 Kelime</Text>
+            </ListItem>
+            <ListItem>
+                <Text style={{fontWeight:'bold',fontSize:20}}>Sayfalara Git</Text>
+            </ListItem>
+            <ListItem onPress={()=>navigation.navigate('Categories')}>
+                <Text>Kategoriler</Text>
+            </ListItem>
+            <ListItem onPress={()=>navigation.navigate('Tab1')}>
+                <Text>Tab1</Text>
+            </ListItem>
+            </View>
+
+            <View style={{ width:'100%',marginBottom:0,backgroundColor: '#bdc3c7', height: 300}} />
+
+
+
+
         </View>
     )
 }
