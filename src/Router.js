@@ -23,6 +23,7 @@ import {CustomTabNav} from './components/CustomTabNav';
 import Categories from './container/Categories';
 import Books from './container/Books';
 import BookDetail from './container/BookDetail';
+import BookRead from './container/BookRead';
 
 
 
@@ -68,6 +69,9 @@ const StackNavigator = createStackNavigator(
 		BookDetail:{
 			screen:BookDetail
 		},
+		BookRead : {
+			screen : BookRead
+		}
 
 	},
 	{

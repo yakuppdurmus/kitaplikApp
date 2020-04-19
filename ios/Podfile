@@ -57,6 +57,9 @@ target 'KitaplikApp' do
 
   pod 'RNSVG', :path => '../node_modules/react-native-svg'
 
+
+  pod 'react-native-selectable-text', :path => '../node_modules/@astrocoders/react-native-selectable-text'
+
   target 'KitaplikAppTests' do
     inherit! :complete
     # Pods for testing

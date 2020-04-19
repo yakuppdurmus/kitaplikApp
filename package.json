@@ -10,6 +10,7 @@
     "lint": "eslint ."
   },
   "dependencies": {
+    "@astrocoders/react-native-selectable-text": "git+https://github.com/yakuppdurmus/react-native-selectable-text.git",
     "@react-native-firebase/app": "^6.4.0",
     "@react-native-firebase/auth": "^6.4.0",
     "react": "16.11.0",
@@ -21,7 +22,6 @@
     "react-native-svg-uri": "^1.2.3"
   },
   "devDependencies": {
-    "@astrocoders/react-native-selectable-text": "git+https://github.com/yakuppdurmus/react-native-selectable-text.git",
     "@babel/core": "^7.9.0",
     "@babel/runtime": "^7.9.2",
     "@react-native-community/eslint-config": "^1.0.0",
