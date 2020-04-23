@@ -1,7 +1,7 @@
 import React from 'react';
 import {ListItem,Left,Text,Body} from 'native-base';
 import {Image} from 'react-native'
-import {imageUrl} from '../services/config'
+import {imageUrl} from '../services/config';
 export const BookItem = ({name,description,image}) =>{
     return(
         <ListItem thumbnail style={{ marginBottom: 10 }}>

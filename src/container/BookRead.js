@@ -3,6 +3,9 @@ import { Text, View, ScrollView, TouchableOpacity, Platform, TextInput,Dimension
 import { SelectableText } from "@astrocoders/react-native-selectable-text";
 import { SafeAreaView } from 'react-native-safe-area-context';
 import Swiper from 'react-native-swiper'
+import MyStore from '../services/MyStore';
+import { Button } from 'native-base';
+import { observer } from 'mobx-react';
 
 
 
@@ -10,6 +13,7 @@ import Swiper from 'react-native-swiper'
 const screenHeight = Dimensions.get('window').height;
 let lastPage = 1;
 //667
+@observer
 export class BookRead extends Component {
 
     constructor(props) {
@@ -31,8 +35,10 @@ export class BookRead extends Component {
         }
         return (
             <View style={{ flex: 1, backgroundColor: '#888', justifyContent: 'center', alignItems: 'center' }}>
-                    <BookBody settings={settings} />
-                    <BookFooter />
+                <Text>{MyStore.count}</Text>
+                <Button onPress={()=>{MyStore.countSet(MyStore.count+1)}}><Text>asdasda</Text></Button>
+                    {/* <BookBody settings={settings} /> */}
+                    {/* <BookFooter /> */}
             </View>
         )
     }
