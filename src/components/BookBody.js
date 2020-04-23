@@ -3,8 +3,11 @@ import { Text, View, ScrollView } from 'react-native'
 import { SelectableText } from "@astrocoders/react-native-selectable-text";
 import Swiper from 'react-native-swiper'
 import {Icon} from 'native-base'
+import { observer } from 'mobx-react';
+import MyStore from '../services/MyStore';
 
-export const BookBody = ({ settings, textProps, swiperOnIndexChanged, onSelection, menuItems,initialPageIndex }) => {
+
+export const BookBody = observer(({ settings, textProps, swiperOnIndexChanged, onSelection, menuItems,initialPageIndex }) => {
   const { swiperStyle, selectableTextStyle, textContentContainerStyle, textSubContainerStyle } = settings;
   textProps = Array.isArray(textProps) ? textProps : [];
   return (
@@ -36,9 +39,10 @@ export const BookBody = ({ settings, textProps, swiperOnIndexChanged, onSelectio
       })}
     </Swiper>
   )
-}
+})
 
-const BookPage = ({ selectableTextStyle, textContentContainerStyle, textSubContainerStyle, value, onSelection, highlights, menuItems }) => {
+// const Timer = observer(({ timerData }) =>
+const BookPage = observer(({ textContentContainerStyle, textSubContainerStyle, value, onSelection, highlights, menuItems }) => {
   return (
     <ScrollView
       showsVerticalScrollIndicator={false}
@@ -58,13 +62,13 @@ const BookPage = ({ selectableTextStyle, textContentContainerStyle, textSubConta
           color: '#ddd',
           flex: 1,
           fontWeight:'200',
-          lineHeight:30,
+          lineHeight:26,
           fontSize: 20,
-          ...selectableTextStyle
+          ...MyStore.selectableTextStyle
         }}
         highlights={highlights}
       >
       </SelectableText>
     </ScrollView>
   )
-}
+})

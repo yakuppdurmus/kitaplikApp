@@ -25,6 +25,7 @@ class MyStore {
     }
 
     @observable count = 0;
+    @observable selectableTextStyle = {paddingBottom:45,fontSize:20};
     @observable textSettings = {...textSettings};
 
 
@@ -41,14 +42,16 @@ class MyStore {
     }
 
     @action textSettingsSet(value){
-
+        this.textSettings = value;
+    }
+    @action selectableTextStyleSet(value){
+        this.selectableTextStyle = Object.assign(this.selectableTextStyle,value);
     }
 
 }
 
 const textSettings = StyleSheet.create({
     swiperStyle : {},
-    selectableTextStyle : {paddingBottom:45},
     textContentContainerStyle :{},
     textContainerStyle:{},
     textSubContainerStyle:{},

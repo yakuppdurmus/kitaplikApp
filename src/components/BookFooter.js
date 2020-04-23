@@ -1,13 +1,20 @@
 import React, { useState, useEffect } from 'react';
 import { Text, View, TouchableOpacity, Animated } from 'react-native';
 import Slider from '@react-native-community/slider';
+import MyStore from '../services/MyStore';
 
 import SafeAreaView from 'react-native-safe-area-view';
 import { Icon } from 'native-base'
-import { FabButton } from './FabButton';
-export const BookFooter = () => {
+import { observer } from 'mobx-react';
+
+
+const backgroundColor = "#ddd";
+const activeColor = "#FF6665";
+const minimumValue = 20;
+const maximumValue = 35;
+
+export const BookFooter = observer(() => {
     const [isShow, setIsShow] = useState(false);
-    const backgroundColor = "#ddd";
     return (
         <SafeAreaView style={{ backgroundColor: backgroundColor, minHeight: 0 }}>
             <View style={{ backgroundColor: backgroundColor, position: 'absolute', right: 0, top: -40, paddingLeft: 15, paddingRight: 15 }}>
@@ -25,15 +32,32 @@ export const BookFooter = () => {
                     <MyButton text="Releway" />
                 </View>
                 <View style={rowStyle}>
-                    <MyButton icon="magnifier-remove" style={{ width: 50, flex: 0 }} type="SimpleLineIcons" />
+                    <MyButton icon="magnifier-remove"  onPress={()=>{
+                        let value = MyStore.selectableTextStyle.fontSize-5;
+                        if(value<minimumValue) return;
+                        MyStore.selectableTextStyleSet({fontSize:value,lineHeight:value*1.3})
+
+                    }} style={{ width: 50, flex: 0 }} type="SimpleLineIcons" />
                     <Slider
                         style={{ flex: 1, height: 40 }}
-                        minimumValue={0}
-                        maximumValue={1}
-                        minimumTrackTintColor="#000000"
+                        minimumValue={minimumValue}
+                        maximumValue={maximumValue}
+                        step={5}
+                        value={MyStore.selectableTextStyle.fontSize}
+                        thumbTintColor={activeColor}
+                        onValueChange={(value) => {
+                            MyStore.selectableTextStyleSet({fontSize:value,lineHeight:value*1.3})
+                            
+                        }}
+                        minimumTrackTintColor={activeColor}
                         maximumTrackTintColor="#000000"
                     />
-                    <MyButton icon="magnifier-add" style={{ width: 50, flex: 0 }} type="SimpleLineIcons" />
+                    <MyButton onPress={()=>{
+                         let value = MyStore.selectableTextStyle.fontSize+5;
+                         if(value>maximumValue) return;
+                         MyStore.selectableTextStyleSet({fontSize:value,lineHeight:value*1.3})
+
+                    }} icon="magnifier-add" style={{ width: 50, flex: 0 }} type="SimpleLineIcons" />
                 </View>
                 <View style={rowStyle}>
                     <MyButton text="Dikey" />
@@ -42,14 +66,14 @@ export const BookFooter = () => {
             </View>}
         </SafeAreaView>
     )
-}
+})
 
 const MyButton = ({ text, icon, type, onPress, style, active }) => {
 
     return (
         <TouchableOpacity onPress={onPress} style={{ flex: 1, alignItems: 'center', ...style }}>
-            {text && <Text style={{ paddingBottom: 5, paddingTop: 5, fontWeight: active ? 'bold' : 'normal',color:active ? '#FF6665':'#000' }}>{text}</Text>}
-            {icon && <Icon style={{color:active?'#FF6665':'#000'}} name={icon} type={type ? type : "Ionicons"} />}
+            {text && <Text style={{ paddingBottom: 5, paddingTop: 5, fontWeight: active ? 'bold' : 'normal', color: active ? activeColor : '#000' }}>{text}</Text>}
+            {icon && <Icon style={{ color: active ? activeColor : '#000' }} name={icon} type={type ? type : "Ionicons"} />}
         </TouchableOpacity>
     )
 }
