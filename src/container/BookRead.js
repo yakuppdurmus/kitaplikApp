@@ -1,58 +1,152 @@
 import React, { Component } from 'react'
-import { Text, View,ScrollView,TouchableOpacity } from 'react-native'
+import { Text, View, ScrollView, TouchableOpacity, Platform, TextInput,Dimensions } from 'react-native'
 import { SelectableText } from "@astrocoders/react-native-selectable-text";
 import { SafeAreaView } from 'react-native-safe-area-context';
+import Swiper from 'react-native-swiper'
 
 
 
 
+const screenHeight = Dimensions.get('window').height;
+let lastPage = 1;
+//667
 export class BookRead extends Component {
 
-    constructor(props){
+    constructor(props) {
         super(props)
-        this.state={
-            fontSize:22,
+        this.state = {
+            fontSize: 20,
+            
         }
     }
     render() {
+        let settings = {
+            selectableText: {
+                fontSize: this.state.fontSize,
+                lineHeight:30
+            },
+            textContainerStyle: {
+
+            }
+        }
         return (
-            <View style={{ flex: 1, backgroundColor: '#333', justifyContent: 'center', alignItems: 'center',padding:20 }}>
-                <SafeAreaView>
-                <ScrollView showsVerticalScrollIndicator={false}>
-                <SelectableText
-                    menuItems={["Sarı", "Mavi","Paylaş"]}
-                    /* 
-                      Called when the user taps in a item of the selection menu:
-                      - eventType: (string) is the label
-                      - content: (string) the selected text portion
-                      - selectionStart: (int) is the start position of the selected text
-                      - selectionEnd: (int) is the end position of the selected text
-                      value	text content	string	""
-highlights	array of text ranges that should be highlighted with an optional id	array({ id: string, start: int, end: int,backgroundColor: string })
-                     */
-                    onSelection={({ eventType, content, selectionStart, selectionEnd }) => { }}
-                    value={lorem}
-                    style={{
-                        color:'#ddd',
-                        fontSize:this.state.fontSize}}
-                    highlights={[
-                        {id:"test1",start:0,end:10,backgroundColor:"#f0f"},
-                        {id:"test2",start:50,end:100,backgroundColor:"#f0f"}
-                    ]}
-                />
-                </ScrollView>
-                <View style={{height:50,flexDirection:'row',paddingTop:10}}>
-                    <TouchableOpacity onPress={()=>{this.setState({fontSize:this.state.fontSize+2})}} style={{flex:1,justifyContent:'center',alignItems:'center',margin:5,backgroundColor:'red'}}><Text>+</Text></TouchableOpacity>
-                    <TouchableOpacity onPress={()=>{this.setState({fontSize:this.state.fontSize-2})}} style={{flex:1,justifyContent:'center',alignItems:'center',margin:5,backgroundColor:'red'}}><Text>-</Text></TouchableOpacity>
-                    <TouchableOpacity onPress={()=>{this.setState({fontSize:18})}} style={{flex:1,justifyContent:'center',alignItems:'center',margin:5,backgroundColor:'red'}}><Text>Sıfırla</Text></TouchableOpacity>
-                </View>
-                </SafeAreaView>
+            <View style={{ flex: 1, backgroundColor: '#888', justifyContent: 'center', alignItems: 'center' }}>
+                    <BookBody settings={settings} />
+                    <BookFooter />
             </View>
         )
     }
 }
-
 export default BookRead
+
+
+
+const BookFooter = () => {
+    return (
+        <View style={{ height: 50, flexDirection: 'row', paddingTop: 10 }}>
+            <TouchableOpacity onPress={() => { this.setState({ fontSize: this.state.fontSize + 2 }) }} style={{ flex: 1, justifyContent: 'center', alignItems: 'center', margin: 5, backgroundColor: 'red' }}><Text>+</Text></TouchableOpacity>
+            <TouchableOpacity onPress={() => { this.setState({ fontSize: this.state.fontSize - 2 }) }} style={{ flex: 1, justifyContent: 'center', alignItems: 'center', margin: 5, backgroundColor: 'red' }}><Text>-</Text></TouchableOpacity>
+            <TouchableOpacity onPress={() => { this.setState({ fontSize: 18 }) }} style={{ flex: 1, justifyContent: 'center', alignItems: 'center', margin: 5, backgroundColor: 'red' }}><Text>Sıfırla</Text></TouchableOpacity>
+        </View>
+    )
+}
+
+const BookBody = ({ settings }) => {
+    const { selectableText, textContainerStyle } = settings;
+    let data = [];
+    for (let index = 0; index < 100; index++) {
+        data.push(index);
+
+    }
+    return (
+        
+        <Swiper
+            loop={false}
+            style={{}}
+            index={1}
+            showsPagination={false}
+            showsButtons
+            nextButton={
+                <Text
+                  style={{
+                    fontSize: 16,
+                    color: 'red',
+                    fontWeight: 'bold',
+                    padding: 20,
+                  }}
+                  
+                >
+                  {"NEXT"}
+                </Text>
+              }
+            onIndexChanged={(pageIndex)=>{}}
+
+            buttonWrapperStyle={{flexDirection:'column'}}
+
+            prevButton={
+              <Text
+                style={{
+                  fontSize: 16,
+                  color: '#767676',
+                  fontWeight: 'bold',
+                  padding: 20,
+                }}
+              >
+                Skip
+              </Text>
+            }
+
+
+
+            >
+            <BookPage
+                selectableTextStyle={selectableText}
+                textContainerStyle={textContainerStyle}
+            />
+            <BookPage
+                selectableTextStyle={selectableText}
+                textContainerStyle={textContainerStyle}
+            />
+            <BookPage
+                selectableTextStyle={selectableText}
+                textContainerStyle={textContainerStyle}
+            />
+        </Swiper>
+    )
+}
+
+const BookPage = ({ selectableTextStyle, textContainerStyle }) => {
+    return (
+        <View showsVerticalScrollIndicator={false} contentContainerStyle={{ ...textContainerStyle }} style={{ flex: 1,backgroundColor:'red',justifyContent:'center',alignItems:'center',paddingTop:21 }}>
+            <SelectableText
+
+                selectable
+                numberOfLines={4}
+                scrollEnabled={false}
+                editable={false}
+                value={lorem}
+                style={{
+                    color: '#ddd',
+                    flex: 1,
+                    ...selectableTextStyle
+                }}
+            >
+                <Text>asdasdkjfslfkjsdlk sfl sjldkfj slkdf jslkf jslsda</Text>
+            </SelectableText>
+            {/* <Text
+            numberOfLines={21}
+            style={{
+                backgroundColor:'blue',
+                color: '#ddd',
+                flex: 1,
+                ...selectableTextStyle
+            }}
+            >
+                {lorem}
+            </Text> */}
+         </View>
+    )
+}
 
 const lorem = `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas arcu velit, pretium eu lacinia in, vestibulum id turpis. In sem libero, auctor eu interdum quis, eleifend in dolor. Donec rutrum aliquet felis, et consectetur elit sollicitudin ut. Vivamus et magna mi. Ut tristique, arcu nec eleifend efficitur, ipsum elit ornare ligula, vitae vulputate felis dui nec sapien. Etiam facilisis, odio quis congue consectetur, augue metus luctus leo, a ullamcorper nulla erat fermentum metus. In sollicitudin cursus lacus, non commodo sem luctus viverra. Ut massa augue, mattis quis sapien ac, molestie molestie mauris. Sed ac lorem nec dolor volutpat imperdiet. Vestibulum pharetra orci sed ex rutrum, et pretium nibh bibendum. Maecenas nulla nisl, euismod vel mi lacinia, laoreet hendrerit dui.
 

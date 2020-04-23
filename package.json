@@ -19,7 +19,8 @@
     "react-native-keyboard-aware-scrollview": "^2.1.0",
     "react-native-spinkit": "^1.5.0",
     "react-native-svg": "^12.0.3",
-    "react-native-svg-uri": "^1.2.3"
+    "react-native-svg-uri": "^1.2.3",
+    "react-native-swiper": "^1.6.0"
   },
   "devDependencies": {
     "@babel/core": "^7.9.0",
