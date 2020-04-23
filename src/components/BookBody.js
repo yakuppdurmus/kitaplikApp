@@ -2,6 +2,7 @@ import React from 'react'
 import { Text, View, ScrollView } from 'react-native'
 import { SelectableText } from "@astrocoders/react-native-selectable-text";
 import Swiper from 'react-native-swiper'
+import {Icon} from 'native-base'
 
 export const BookBody = ({ settings, textProps, swiperOnIndexChanged, onSelection, menuItems,initialPageIndex }) => {
   const { swiperStyle, selectableTextStyle, textContentContainerStyle, textSubContainerStyle } = settings;
@@ -15,6 +16,8 @@ export const BookBody = ({ settings, textProps, swiperOnIndexChanged, onSelectio
       showsPagination={false}
       showsButtons
       onIndexChanged={swiperOnIndexChanged}
+      nextButton={<Icon style={{color:'white'}} name="ios-arrow-forward"/>}
+      prevButton={<Icon style={{color:'white'}} name="ios-arrow-back"/>}
     >
       {textProps.map((item, index) => {
         const { value, highlights } = item ? item : []

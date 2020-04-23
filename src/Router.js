@@ -100,7 +100,7 @@ const DrawerNavigator = createDrawerNavigator(
 const LoginStack = createStackNavigator(
 	{
 		Login: {
-			screen: Login
+			screen: BookRead
 		},
 		Register: {
 			screen: Register,
