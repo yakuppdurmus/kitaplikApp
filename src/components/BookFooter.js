@@ -21,16 +21,16 @@ export const BookFooter = observer(() => {
                 <TouchableOpacity onPress={() => setIsShow(!isShow)}><Icon style={{ fontSize: 40 }} name={isShow ? "ios-arrow-down" : "ios-arrow-up"} /></TouchableOpacity>
             </View>
             {isShow && <View>
-                <View style={rowStyle}>
+                {/* <View style={rowStyle}>
                     <MyButton icon="ios-sunny" />
                     <MyButton active icon="ios-moon" />
-                </View>
-                <View style={rowStyle}>
+                </View> */}
+                {/* <View style={rowStyle}>
                     <MyButton active text="Andada" />
                     <MyButton text="Lato" />
                     <MyButton text="Lora" />
                     <MyButton text="Releway" />
-                </View>
+                </View> */}
                 <View style={rowStyle}>
                     <MyButton icon="magnifier-remove"  onPress={()=>{
                         let value = MyStore.selectableTextStyle.fontSize-5;
@@ -59,10 +59,10 @@ export const BookFooter = observer(() => {
 
                     }} icon="magnifier-add" style={{ width: 50, flex: 0 }} type="SimpleLineIcons" />
                 </View>
-                <View style={rowStyle}>
+                {/* <View style={rowStyle}>
                     <MyButton text="Dikey" />
                     <MyButton active text="Yatay" />
-                </View>
+                </View> */}
             </View>}
         </SafeAreaView>
     )
