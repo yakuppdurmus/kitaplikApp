@@ -15,6 +15,8 @@ import  {HashButton} from './HashButton';
 import  {BookItem} from './BookItem';
 import  {FullButton} from './FullButton';
 import  {Banner} from './Banner';
+import  {BookBody} from './BookBody';
+import  {BookFooter} from './BookFooter';
 
 export {
     AppBackground,
@@ -34,5 +36,7 @@ export {
     HashButton,
     BookItem,
     FullButton,
-    Banner
+    Banner,
+    BookBody,
+    BookFooter
 }
