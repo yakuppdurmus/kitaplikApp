@@ -1,5 +1,5 @@
 import { observable, action, configure, autorun, reaction, runInAction } from 'mobx'
-import {StyleSheet} from 'react-native'
+import { StyleSheet } from 'react-native'
 //actions kullanımına zorlar
 configure({
     enforceActions: "observed"
@@ -24,11 +24,41 @@ class MyStore {
         )
     }
 
+    textMinimumValue = 20;
+    textMaximumValue = 32;
     @observable count = 0;
-    @observable selectableTextStyle = {paddingBottom:45,fontSize:20};
-    @observable textSettings = {...textSettings};
+    @observable nightMode = true;
+    @observable swiperStyle = {};
+    @observable textContentContainerStyle = {};
+    @observable textConightMode = {};
+    @observable textSubContainerStyle = {};
+    @observable selectableTextStyle = { paddingBottom: 45,fontSize:20 };
 
+    @action nightModeSet(vale) {
+        this.nightMode = vale;
+        if (vale) {
+            this.selectableTextStyleSet({color: '#fff'});
+            this.textContentContainerStyleSet({backgroundColor: '#222'});
+        } else {
+            this.selectableTextStyleSet({color: '#222'});
+            this.textContentContainerStyleSet({backgroundColor: '#fff'});
+        }
+    }
 
+    @action swiperStyleSet(value) {
+    }
+    @action textContentContainerStyleSet(value) {
+        this.textContentContainerStyle = Object.assign(this.textContentContainerStyle, value);
+    }
+    @action textConightModeSet(value) {
+
+    }
+    @action textSubContainerStyleSet(value) {
+
+    }
+    @action selectableTextStyleSet(value) {
+        this.selectableTextStyle = Object.assign(this.selectableTextStyle, value);
+    }
     @action countSet(value) {
         this.count = value;
 
@@ -40,21 +70,18 @@ class MyStore {
 
         // }, 2000)
     }
-
-    @action textSettingsSet(value){
-        this.textSettings = value;
+    textSizeUp() {
+        let value = this.selectableTextStyle.fontSize + 3;
+        if (value < this.textMinimumValue) return;
+        this.selectableTextStyleSet({ fontSize: value, lineHeight: value * 1.3 });
     }
-    @action selectableTextStyleSet(value){
-        this.selectableTextStyle = Object.assign(this.selectableTextStyle,value);
+    textSizeDown() {
+        let value = this.selectableTextStyle.fontSize - 3;
+        if (value < this.textMinimumValue) return;
+        this.selectableTextStyleSet({ fontSize: value, lineHeight: value * 1.3 });
     }
-
+    textSizeSet(value) {
+        this.selectableTextStyleSet({ fontSize: value, lineHeight: value * 1.3 });
+    }
 }
-
-const textSettings = StyleSheet.create({
-    swiperStyle : {},
-    textContentContainerStyle :{},
-    textContainerStyle:{},
-    textSubContainerStyle:{},
-})
-
 export default new MyStore()

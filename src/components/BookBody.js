@@ -7,14 +7,13 @@ import { observer } from 'mobx-react';
 import MyStore from '../services/MyStore';
 
 
-export const BookBody = observer(({ settings, textProps, swiperOnIndexChanged, onSelection, menuItems,initialPageIndex }) => {
-  const { swiperStyle, selectableTextStyle, textContentContainerStyle, textSubContainerStyle } = settings;
+export const BookBody = observer(({ textProps, swiperOnIndexChanged, onSelection, menuItems,initialPageIndex }) => {
   textProps = Array.isArray(textProps) ? textProps : [];
   return (
 
     <Swiper
       loop={false}
-      style={{ ...swiperStyle }}
+      style={{ ...MyStore.swiperStyle }}
       index={initialPageIndex}
       showsPagination={false}
       showsButtons
@@ -26,9 +25,9 @@ export const BookBody = observer(({ settings, textProps, swiperOnIndexChanged, o
         const { value, highlights } = item ? item : []
         return (
           <BookPage
-            selectableTextStyle={selectableTextStyle}
-            textContentContainerStyle={textContentContainerStyle}
-            textSubContainerStyle={textSubContainerStyle}
+            selectableTextStyle={MyStore.selectableTextStyle}
+            textContentContainerStyle={MyStore.textContentContainerStyle}
+            textSubContainerStyle={MyStore.textSubContainerStyle}
             value={value} // lorem
             onSelection={onSelection}
             highlights={highlights} // [{ id: "test", start: 20, end: 50, backgroundColor: '#a0a' }]
@@ -61,10 +60,10 @@ const BookPage = observer(({ textContentContainerStyle, textSubContainerStyle, v
         style={{
           color: '#ddd',
           flex: 1,
-          fontWeight:'200',
+          fontWeight:'300',
           lineHeight:26,
           fontSize: 20,
-          ...MyStore.selectableTextStyle
+          ...MyStore.selectableTextStyle,
         }}
         highlights={highlights}
       >

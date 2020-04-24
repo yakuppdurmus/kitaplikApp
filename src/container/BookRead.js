@@ -42,11 +42,10 @@ export class BookRead extends Component {
             <View style={{
                 flex: 1,
                 backgroundColor: '#222',
-                ...MyStore.textSettings.textContainerStyle
+                ...MyStore.textContainerStyle
             }}>
                 <SafeAreaView style={{flex:1,paddingBottom:0,marginBottom:0}}>
                 <BookBody
-                    settings={MyStore.textSettings}
                     textProps={this.textProps()}
                     swiperOnIndexChanged={this.swiperOnIndexChanged}
                     onSelection={this.onSelection}

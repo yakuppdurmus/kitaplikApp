@@ -10,8 +10,6 @@ import { observer } from 'mobx-react';
 
 const backgroundColor = "#ddd";
 const activeColor = "#FF6665";
-const minimumValue = 20;
-const maximumValue = 35;
 
 export const BookFooter = observer(() => {
     const [isShow, setIsShow] = useState(false);
@@ -21,10 +19,18 @@ export const BookFooter = observer(() => {
                 <TouchableOpacity onPress={() => setIsShow(!isShow)}><Icon style={{ fontSize: 40 }} name={isShow ? "ios-arrow-down" : "ios-arrow-up"} /></TouchableOpacity>
             </View>
             {isShow && <View>
-                {/* <View style={rowStyle}>
-                    <MyButton icon="ios-sunny" />
-                    <MyButton active icon="ios-moon" />
-                </View> */}
+                <View style={rowStyle}>
+                    <MyButton 
+                    active={!MyStore.nightMode}
+                    onPress={() => {
+                        MyStore.nightModeSet(false);
+                    }} icon="ios-sunny" />
+                    <MyButton 
+                    active={MyStore.nightMode}
+                    onPress={() => {
+                        MyStore.nightModeSet(true);
+                    }} icon="ios-moon" />
+                </View>
                 {/* <View style={rowStyle}>
                     <MyButton active text="Andada" />
                     <MyButton text="Lato" />
@@ -32,31 +38,24 @@ export const BookFooter = observer(() => {
                     <MyButton text="Releway" />
                 </View> */}
                 <View style={rowStyle}>
-                    <MyButton icon="magnifier-remove"  onPress={()=>{
-                        let value = MyStore.selectableTextStyle.fontSize-5;
-                        if(value<minimumValue) return;
-                        MyStore.selectableTextStyleSet({fontSize:value,lineHeight:value*1.3})
-
+                    <MyButton icon="magnifier-remove" onPress={() => {
+                        MyStore.textSizeDown()
                     }} style={{ width: 50, flex: 0 }} type="SimpleLineIcons" />
                     <Slider
                         style={{ flex: 1, height: 40 }}
-                        minimumValue={minimumValue}
-                        maximumValue={maximumValue}
-                        step={5}
+                        minimumValue={MyStore.textMinimumValue}
+                        maximumValue={MyStore.textMaximumValue}
+                        step={3}
                         value={MyStore.selectableTextStyle.fontSize}
                         thumbTintColor={activeColor}
                         onValueChange={(value) => {
-                            MyStore.selectableTextStyleSet({fontSize:value,lineHeight:value*1.3})
-                            
+                            MyStore.textSizeSet(value);
                         }}
                         minimumTrackTintColor={activeColor}
                         maximumTrackTintColor="#000000"
                     />
-                    <MyButton onPress={()=>{
-                         let value = MyStore.selectableTextStyle.fontSize+5;
-                         if(value>maximumValue) return;
-                         MyStore.selectableTextStyleSet({fontSize:value,lineHeight:value*1.3})
-
+                    <MyButton onPress={() => {
+                        MyStore.textSizeUp()
                     }} icon="magnifier-add" style={{ width: 50, flex: 0 }} type="SimpleLineIcons" />
                 </View>
                 {/* <View style={rowStyle}>
