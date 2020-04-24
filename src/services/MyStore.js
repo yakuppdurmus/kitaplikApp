@@ -32,32 +32,37 @@ class MyStore {
     @observable textContentContainerStyle = {};
     @observable textConightMode = {};
     @observable textSubContainerStyle = {};
+    @observable textContainerStyle = {};
     @observable selectableTextStyle = { paddingBottom: 45,fontSize:20 };
 
     @action nightModeSet(vale) {
         this.nightMode = vale;
         if (vale) {
             this.selectableTextStyleSet({color: '#fff'});
-            this.textContentContainerStyleSet({backgroundColor: '#222'});
+            this.textContainerStyleSet({backgroundColor: '#222'});
+            // this.textContentContainerStyleSet({backgroundColor: '#222'});
         } else {
             this.selectableTextStyleSet({color: '#222'});
-            this.textContentContainerStyleSet({backgroundColor: '#fff'});
+            this.textContainerStyleSet({backgroundColor: '#fff'});
+            // this.textContentContainerStyleSet({backgroundColor: '#fff'});
         }
     }
-
-    @action swiperStyleSet(value) {
+    @action textContainerStyleSet(value) {
+        this.textContainerStyle = Object.assign(this.textContainerStyle, value);
     }
     @action textContentContainerStyleSet(value) {
         this.textContentContainerStyle = Object.assign(this.textContentContainerStyle, value);
+    }
+    @action selectableTextStyleSet(value) {
+        this.selectableTextStyle = Object.assign(this.selectableTextStyle, value);
+    }
+    @action swiperStyleSet(value) {
     }
     @action textConightModeSet(value) {
 
     }
     @action textSubContainerStyleSet(value) {
 
-    }
-    @action selectableTextStyleSet(value) {
-        this.selectableTextStyle = Object.assign(this.selectableTextStyle, value);
     }
     @action countSet(value) {
         this.count = value;

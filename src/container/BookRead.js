@@ -53,7 +53,7 @@ export class BookRead extends Component {
 
                 />
                 </SafeAreaView>
-                <BookFooter />
+                <BookFooter navigation={this.props.navigation} />
             </View>
         )
     }
