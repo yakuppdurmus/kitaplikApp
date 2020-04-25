@@ -4,7 +4,7 @@ import Slider from '@react-native-community/slider';
 import MyStore from '../services/MyStore';
 
 import SafeAreaView from 'react-native-safe-area-view';
-import { Icon } from 'native-base'
+import { Icon, Button } from 'native-base'
 import { observer } from 'mobx-react';
 
 
@@ -15,11 +15,10 @@ export const BookFooter = observer(({navigation}) => {
     const [isShow, setIsShow] = useState(false);
     return (
         <SafeAreaView style={{ backgroundColor: backgroundColor, minHeight: 0 }}>
-            <View style={{ backgroundColor: backgroundColor, position: 'absolute', right: 0, top: -40, paddingLeft: 15, paddingRight: 15 }}>
-                <TouchableOpacity onPress={() => setIsShow(!isShow)}><Icon style={{ fontSize: 40 }} name={isShow ? "ios-arrow-down" : "ios-arrow-up"} /></TouchableOpacity>
-            </View>
-            <View style={{ backgroundColor: backgroundColor, position: 'absolute', left: 0, top: -40, paddingLeft: 15, paddingRight: 15 }}>
+            <View style={{ backgroundColor:'transparent', paddingLeft: 15,flexDirection:'row',justifyContent:'space-between', paddingRight: 15 }}>
                 <TouchableOpacity onPress={() =>navigation.goBack()  }><Icon style={{ fontSize: 40 }} name={"ios-arrow-back"} /></TouchableOpacity>
+                <TouchableOpacity onPress={() => setIsShow(!isShow)}><Icon style={{ fontSize: 40 }} name={isShow ? "ios-arrow-down" : "ios-arrow-up"} /></TouchableOpacity>
+
             </View>
             {isShow && <View>
                 <View style={rowStyle}>

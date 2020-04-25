@@ -88,7 +88,7 @@ export const CircleProfile = ({ boxSmallWidth, boxWidth, marginLeft, profile }) 
                         }}>
                             <Icon style={{ fontSize: _iconSize,color:"#fff" }} type={item.type ? item.type : "Ionicons"} name={item.icon} />
                             <View style={{ backgroundColor: 'rgba(52, 73, 94,0.5)',position: 'absolute', left: _boxSmallWidth,top:item.deg==90?-_boxSmallWidth/4:item.deg == 270 ? +_boxSmallWidthr+_boxSmallWidth/4 : undefined ,paddingLeft:10,paddingRight:10,paddingTop:5,paddingBottom:5,borderRadius:5 }}>
-                                <Text style={{ textAlign: 'center',fontWeight:'600',fontFamily:'Roboto-Italic',fontWeight:'400', color: 'white', fontSize: 12,width:120 }}>{item.text}</Text>
+                                <Text style={{ textAlign: 'center',fontWeight:'600',fontFamily:'Roboto-Bold',fontWeight:'400', color: 'white', fontSize: 12,width:120 }}>{item.text}</Text>
                             </View>
                         </TouchableOpacity>
                     </View>

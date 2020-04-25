@@ -7,7 +7,7 @@ export const CustomTabNav = (props) => {
 
     return (
         <Footer style={{backgroundColor:'#fff',borderTopWidth:0}}>
-            <FooterTab>
+            <FooterTab style={{backgroundColor:'#fff'}}>
                 <Button onPress={()=>{
                     setActiveIndex(0);
                     props.navigation.navigate('Home');
