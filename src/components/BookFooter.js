@@ -34,10 +34,10 @@ export const BookFooter = observer(({navigation}) => {
                     }} icon="ios-moon" />
                 </View>
                 <View style={rowStyle}>
-                    <MyButton active text="Andada" />
-                    <MyButton text="Lato" />
-                    <MyButton text="Lora" />
-                    <MyButton text="Releway" />
+                    <MyButton active={MyStore.selectableTextStyle.fontFamily == "Andada-Regular"} onPress={()=>{MyStore.selectableTextStyleSet({fontFamily:"Andada-Regular"})}} text="Andada" />
+                    <MyButton active={MyStore.selectableTextStyle.fontFamily == "Lato-Regular"} onPress={()=>{MyStore.selectableTextStyleSet({fontFamily:"Lato-Regular"})}} text="Lato" />
+                    <MyButton active={MyStore.selectableTextStyle.fontFamily == "Lora-Regular"} onPress={()=>{MyStore.selectableTextStyleSet({fontFamily:"Lora-Regular"})}} text="Lora" />
+                    <MyButton active={MyStore.selectableTextStyle.fontFamily == "Releway-Regular"} onPress={()=>{MyStore.selectableTextStyleSet({fontFamily:"Releway-Regular"})}} text="Releway" />
                 </View>
                 <View style={rowStyle}>
                     <MyButton icon="magnifier-remove" onPress={() => {

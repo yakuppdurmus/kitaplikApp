@@ -33,7 +33,7 @@ class MyStore {
     @observable textConightMode = {};
     @observable textSubContainerStyle = {};
     @observable textContainerStyle = {};
-    @observable selectableTextStyle = { paddingBottom: 45,fontSize:20 };
+    @observable selectableTextStyle = { paddingBottom: 45,fontSize:20,fontFamily:'Andada-Regular' };
 
     @action nightModeSet(vale) {
         this.nightMode = vale;
