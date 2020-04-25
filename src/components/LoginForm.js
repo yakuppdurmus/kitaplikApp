@@ -43,11 +43,11 @@ export const LoginForm = ({ onSubmit, lock, onSubmitAnonymous,lockAnonymous,goRe
                 </View>
                 <View style={{flexDirection:'row'}}>
                 <Button style={{flex:1}} onPress={() => goRegister()} transparent full>
-                    <Text style={{ fontFamily: 'Montserrat-Light' }}>Kayıt Ol</Text>
+                    <Text style={{ fontFamily: 'Montserrat-Regular',fontWeight:'300' }}>Kayıt Ol</Text>
                 </Button>
                <Text style={{justifyContent:'center',alignSelf:'center',color:'white'}}>|</Text>
                 <Button style={{flex:1}} onPress={() => onSubmitAnonymous()} transparent full>
-                    {!lockAnonymous && <Text style={{ fontFamily: 'Montserrat-Light' }}>Üyeliksiz Giriş</Text>}
+                    {!lockAnonymous && <Text style={{ fontFamily: 'Montserrat-Regular',fontWeight:'300' }}>Üyeliksiz Giriş</Text>}
                     <Spinner isVisible={!!lockAnonymous} size={30} type={"Wave"} color={"white"} />
                 </Button>
                 </View>

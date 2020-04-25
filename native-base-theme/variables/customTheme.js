@@ -54,7 +54,7 @@ export default {
   badgePadding: platform === PLATFORM.IOS ? 3 : 0,
 
   // Button
-  buttonFontFamily: platform === PLATFORM.IOS ? 'Montserrat-Bold' : 'Roboto_medium',
+  buttonFontFamily: platform === PLATFORM.IOS ? 'Montserrat-Bold' : 'Montserrat-Bold',
   buttonDisabledBg: '#b5b5b5',
   buttonPadding: 6,
   buttonDefaultActiveOpacity: 0.5,
@@ -172,7 +172,7 @@ export default {
 
   // Font
   DefaultFontSize: 16,
-  fontFamily: platform === PLATFORM.IOS ? 'Montserrat-Regular' : 'Roboto',
+  fontFamily: platform === PLATFORM.IOS ? 'Montserrat-Regular' : 'Montserrat-Regular',
   fontSizeBase: 15,
   get fontSizeH1() {
     return this.fontSizeBase * 1.8;
@@ -299,7 +299,7 @@ export default {
   },
 
   // Title
-  titleFontfamily: platform === PLATFORM.IOS ? 'Montserrat-Regular' : 'Roboto_medium',
+  titleFontfamily: platform === PLATFORM.IOS ? 'Montserrat-Regular' : 'Montserrat-Regular',
   titleFontSize: platform === PLATFORM.IOS ? 17 : 19,
   subTitleFontSize: platform === PLATFORM.IOS ? 11 : 14,
   subtitleColor: platform === PLATFORM.IOS ? '#8e8e93' : '#FFF',
