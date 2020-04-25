@@ -23,7 +23,7 @@ export default (variables /* : * */ = variable) => {
     },
     'NativeBase.Icon': {
       color: variables.topTabBarTextColor,
-      fontSize: platform === PLATFORM.IOS ? 26 : undefined
+      fontSize: platform === "ios" ? 26 : undefined
     },
     '.active': {
       'NativeBase.Text': {

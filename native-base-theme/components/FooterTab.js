@@ -40,7 +40,7 @@ export default (variables /* : * */ = variable) => {
         'NativeBase.Badge': {
           'NativeBase.Text': {
             fontSize: 11,
-            fontWeight: platform === PLATFORM.IOS ? '600' : undefined,
+            fontWeight: platform === "ios" ? '600' : undefined,
             lineHeight: 14
           },
           top: -3,

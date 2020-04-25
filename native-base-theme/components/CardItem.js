@@ -61,7 +61,7 @@ export default (variables /* : * */ = variable) => {
     },
     '.content': {
       'NativeBase.Text': {
-        color: platform === PLATFORM.IOS ? '#555' : '#222',
+        color: platform === "ios" ? '#555' : '#222',
         fontSize: variables.DefaultFontSize - 2
       }
     },
@@ -134,12 +134,12 @@ export default (variables /* : * */ = variable) => {
     '.header': {
       'NativeBase.Text': {
         fontSize: 16,
-        fontWeight: platform === PLATFORM.IOS ? '600' : '500'
+        fontWeight: platform === "ios" ? '600' : '500'
       },
       '.bordered': {
         'NativeBase.Text': {
           color: variables.brandPrimary,
-          fontWeight: platform === PLATFORM.IOS ? '600' : '500'
+          fontWeight: platform === "ios" ? '600' : '500'
         },
         borderBottomWidth: variables.borderWidth
       },
@@ -149,12 +149,12 @@ export default (variables /* : * */ = variable) => {
     '.footer': {
       'NativeBase.Text': {
         fontSize: 16,
-        fontWeight: platform === PLATFORM.IOS ? '600' : '500'
+        fontWeight: platform === "ios" ? '600' : '500'
       },
       '.bordered': {
         'NativeBase.Text': {
           color: variables.brandPrimary,
-          fontWeight: platform === PLATFORM.IOS ? '600' : '500'
+          fontWeight: platform === "ios" ? '600' : '500'
         },
         borderTopWidth: variables.borderWidth
       },

@@ -102,11 +102,11 @@ export default (variables /* : * */ = variable) => {
     flexDirection: 'row',
     justifyContent: 'center',
     borderTopWidth:
-      platform === PLATFORM.IOS && platformStyle !== PLATFORM.MATERIAL
+      platform === "ios" && platformStyle !== PLATFORM.MATERIAL
         ? variables.borderWidth
         : undefined,
     borderColor:
-      platform === PLATFORM.IOS && platformStyle !== PLATFORM.MATERIAL
+      platform === "ios" && platformStyle !== PLATFORM.MATERIAL
         ? '#cbcbcb'
         : undefined,
     height: variables.footerHeight,

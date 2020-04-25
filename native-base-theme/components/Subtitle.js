@@ -10,9 +10,9 @@ export default (variables /* : * */ = variable) => {
     fontSize: variables.subTitleFontSize,
     fontFamily: variables.titleFontfamily,
     color: variables.subtitleColor,
-    textAlign:  Platform.OS === PLATFORM.IOS ? 'center' : 'left',
-    paddingLeft: Platform.OS === PLATFORM.IOS ? 4 : 0,
-    marginLeft: Platform.OS === PLATFORM.IOS ? undefined : -3
+    textAlign:  Platform.OS === "ios" ? 'center' : 'left',
+    paddingLeft: Platform.OS === "ios" ? 4 : 0,
+    marginLeft: Platform.OS === "ios" ? undefined : -3
   };
 
   return subtitleTheme;
