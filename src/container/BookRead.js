@@ -3,13 +3,15 @@ import { Text, View, TouchableOpacity, Dimensions } from 'react-native'
 import MyStore from '../services/MyStore';
 import { Button } from 'native-base';
 import { observer } from 'mobx-react';
-import { BookBody, BookFooter } from '../components';
+import { BookBody, BookFooter, AppInput } from '../components';
 import { SafeAreaView } from 'react-native-safe-area-context';
+import RBSheet from "react-native-raw-bottom-sheet";
 
 
 
 
 const screenHeight = Dimensions.get('window').height;
+let addNotesSelect;
 let lastPage = 1;
 //667
 @observer
@@ -18,45 +20,98 @@ export class BookRead extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            ready:true,
-            selectOnPress:0,
+            ready: true,
+            selectOnPress: 0,
             pageIndex: 0,
             textProps: [
-                { value: lorem, highlights: [
-                    { id: "test", start: 0, end: 18, isTitle: true },
-                ] },
+                {
+                    value: lorem, highlights: [
+                        { id: "test", start: 0, end: 18, isTitle: true },
+                    ]
+                },
                 { value: lorem, highlights: [{ id: "test", start: 20, end: 50, }] },
                 { value: lorem, highlights: [{ id: "test", start: 792, end: 816, textStyle: { fontSize: 40, lineHeight: 40 } }] },
             ],
 
         }
     }
+    selector(select, backgroundColor) {
+        let { textProps, pageIndex } = this.state;
+        textProps[pageIndex].highlights.push({
+            id: select.eventType + '-' + select.selectionStart + '-' + select.selectionEnd,
+            start: select.selectionStart,
+            end: select.selectionEnd,
+            textStyle: { backgroundColor: backgroundColor ? backgroundColor : "#9b59b6" }
+        });
+        this.setState({
+            textProps: textProps,
+            selectOnPress: this.state.selectOnPress + 1,
+        });
+    }
+    addNotes(select) {
+        this.RBSheet.open();
+        addNotesSelect=select;
+
+    }
 
     onSelection = (select) => {
-        if (select.eventType == "İşaretle") {
-            let { textProps, pageIndex } = this.state;
-            textProps[pageIndex].highlights.push({
-                id:"test",
-                start:select.selectionStart,
-                end:select.selectionEnd,
-                
-                textStyle:{backgroundColor:'#9b59b6'}
-            });
-            this.setState({
-                textProps:textProps,
-                selectOnPress:this.state.selectOnPress+1,
-            });
+        switch (select.eventType) {
+            case "İşaretle":
+                this.selector(select)
+                break;
+            case "Not Al":
+                this.addNotes(select);
+                break;
+
+            default:
+                break;
         }
-        
-        
+    }
+    onHighlightPress = (highlightsItem) => {
+        console.log(highlightsItem);
+
     }
     swiperOnIndexChanged = (pageIndex) => {
 
         this.setState({ pageIndex: pageIndex });
     }
+    modalOnChange(modalVisible){
+        if(!modalVisible){
+            this.selector(addNotesSelect,"red");
+        }
+
+    }
+    renderMolda() {
+        return (<RBSheet
+            onClose={()=>this.modalOnChange(false)}
+            onOpen={()=>this.modalOnChange(true)}
+            ref={ref => {
+                this.RBSheet = ref;
+            }}
+            duration={150}
+            height={80}
+            
+        >
+            <View style={{flex:1,backgroundColor:'#222',paddingLeft:10,paddingRight:10}}>
+                {/* input,inputChange,title,inputStyle,textStyle,containerStyle,secureTextEntry,reqired,placeholder,autoFocus */}
+                <AppInput
+                    returnKeyType="done"
+                    onSubmitEditing={(event)=>{
+                        this.RBSheet.close()
+                    }}
+                    autoFocus
+                    reqired
+                    input={this.state.yazi}
+                    inputChange={(yazi) => { this.setState({yazi}) }}
+                    title="Not Al" />
+            </View>
+
+        </RBSheet>
+        )
+    }
 
     render() {
-        if(!this.state.ready) return <View/>
+        if (!this.state.ready) return <View />
 
         return (
             <View style={{
@@ -71,9 +126,11 @@ export class BookRead extends Component {
                         onSelection={this.onSelection}
                         initialPageIndex={0}
                         selectOnPress={this.state.selectOnPress}
+                        onHighlightPress={this.onHighlightPress}
                     />
                 </SafeAreaView>
                 <BookFooter navigation={this.props.navigation} />
+                {this.renderMolda()}
             </View>
         )
     }

@@ -7,7 +7,7 @@ import { observer } from 'mobx-react';
 import MyStore from '../services/MyStore';
 
 
-export const BookBody = observer(({ textProps, swiperOnIndexChanged, onSelection, menuItems,selectOnPress,initialPageIndex }) => {
+export const BookBody = observer(({ textProps, swiperOnIndexChanged, onSelection,onHighlightPress, menuItems,selectOnPress,initialPageIndex }) => {
   textProps = Array.isArray(textProps) ? textProps : [];
 
 
@@ -40,6 +40,7 @@ export const BookBody = observer(({ textProps, swiperOnIndexChanged, onSelection
             highlights={highlights} // [{ id: "test", start: 20, end: 50, backgroundColor: '#a0a' }]
             menuItems={menuItems}
             selectOnPress={selectOnPress}
+            onHighlightPress={onHighlightPress}
           />
         )
 
@@ -49,7 +50,7 @@ export const BookBody = observer(({ textProps, swiperOnIndexChanged, onSelection
 })
 
 // const Timer = observer(({ timerData }) =>
-const BookPage = observer(({ textContentContainerStyle, textSubContainerStyle, value, onSelection, highlights, menuItems,selectOnPress }) => {
+const BookPage = observer(({ textContentContainerStyle,onHighlightPress, textSubContainerStyle, value, onSelection, highlights, menuItems,selectOnPress }) => {
 
   useEffect(() => {
     console.log('count changed');
@@ -70,6 +71,7 @@ const BookPage = observer(({ textContentContainerStyle, textSubContainerStyle, v
       <SelectableText
         value={value ? value : "Metin yükleniyor..."}
         onSelection={onSelection}
+        onHighlightPress={onHighlightPress}
         menuItems={menuItems ? menuItems : ["İşaretle", "Not Al"]}
         style={{
           color: '#ddd',
