@@ -1,0 +1,1 @@
+- [ ] \(Optional) Android select selectable-text isTitle fontSize çalışmıyor
