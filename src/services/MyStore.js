@@ -33,11 +33,13 @@ class MyStore {
     @observable textConightMode = {};
     @observable textSubContainerStyle = {};
     @observable textContainerStyle = {};
+    @observable isHorizontal = true;
     @observable selectableTextStyle = { paddingBottom: 45,fontSize:20,fontFamily:'Andada-Regular' };
 
-    @action nightModeSet(vale) {
-        this.nightMode = vale;
-        if (vale) {
+    
+    @action nightModeSet(value) {
+        this.nightMode = value;
+        if (value) {
             this.selectableTextStyleSet({color: '#fff'});
             this.textContainerStyleSet({backgroundColor: '#222'});
             // this.textContentContainerStyleSet({backgroundColor: '#222'});
@@ -49,6 +51,9 @@ class MyStore {
     }
     @action textContainerStyleSet(value) {
         this.textContainerStyle = Object.assign(this.textContainerStyle, value);
+    }
+    @action isHorizontalSet(value) {
+        this.isHorizontal = value;
     }
     @action textContentContainerStyleSet(value) {
         this.textContentContainerStyle = Object.assign(this.textContentContainerStyle, value);

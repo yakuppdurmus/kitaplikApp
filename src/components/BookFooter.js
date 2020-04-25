@@ -11,33 +11,33 @@ import { observer } from 'mobx-react';
 const backgroundColor = "#ddd";
 const activeColor = "#FF6665";
 
-export const BookFooter = observer(({navigation}) => {
+export const BookFooter = observer(({ navigation }) => {
     const [isShow, setIsShow] = useState(false);
     return (
         <SafeAreaView style={{ backgroundColor: backgroundColor, minHeight: 0 }}>
-            <View style={{ backgroundColor:'transparent', paddingLeft: 15,flexDirection:'row',justifyContent:'space-between', paddingRight: 15 }}>
-                <TouchableOpacity onPress={() =>navigation.goBack()  }><Icon style={{ fontSize: 40 }} name={"ios-arrow-back"} /></TouchableOpacity>
+            <View style={{ backgroundColor: 'transparent', paddingLeft: 15, flexDirection: 'row', justifyContent: 'space-between', paddingRight: 15 }}>
+                <TouchableOpacity onPress={() => navigation.goBack()}><Icon style={{ fontSize: 40 }} name={"ios-arrow-back"} /></TouchableOpacity>
                 <TouchableOpacity onPress={() => setIsShow(!isShow)}><Icon style={{ fontSize: 40 }} name={isShow ? "ios-arrow-down" : "ios-arrow-up"} /></TouchableOpacity>
 
             </View>
             {isShow && <View>
                 <View style={rowStyle}>
-                    <MyButton 
-                    active={!MyStore.nightMode}
-                    onPress={() => {
-                        MyStore.nightModeSet(false);
-                    }} icon="ios-sunny" />
-                    <MyButton 
-                    active={MyStore.nightMode}
-                    onPress={() => {
-                        MyStore.nightModeSet(true);
-                    }} icon="ios-moon" />
+                    <MyButton
+                        active={!MyStore.nightMode}
+                        onPress={() => {
+                            MyStore.nightModeSet(false);
+                        }} icon="ios-sunny" />
+                    <MyButton
+                        active={MyStore.nightMode}
+                        onPress={() => {
+                            MyStore.nightModeSet(true);
+                        }} icon="ios-moon" />
                 </View>
                 <View style={rowStyle}>
-                    <MyButton active={MyStore.selectableTextStyle.fontFamily == "Andada-Regular"} onPress={()=>{MyStore.selectableTextStyleSet({fontFamily:"Andada-Regular"})}} text="Andada" />
-                    <MyButton active={MyStore.selectableTextStyle.fontFamily == "Lato-Regular"} onPress={()=>{MyStore.selectableTextStyleSet({fontFamily:"Lato-Regular"})}} text="Lato" />
-                    <MyButton active={MyStore.selectableTextStyle.fontFamily == "Lora-Regular"} onPress={()=>{MyStore.selectableTextStyleSet({fontFamily:"Lora-Regular"})}} text="Lora" />
-                    <MyButton active={MyStore.selectableTextStyle.fontFamily == "Releway-Regular"} onPress={()=>{MyStore.selectableTextStyleSet({fontFamily:"Releway-Regular"})}} text="Releway" />
+                    <MyButton active={MyStore.selectableTextStyle.fontFamily == "Andada-Regular"} onPress={() => { MyStore.selectableTextStyleSet({ fontFamily: "Andada-Regular" }) }} text="Andada" />
+                    <MyButton active={MyStore.selectableTextStyle.fontFamily == "Lato-Regular"} onPress={() => { MyStore.selectableTextStyleSet({ fontFamily: "Lato-Regular" }) }} text="Lato" />
+                    <MyButton active={MyStore.selectableTextStyle.fontFamily == "Lora-Regular"} onPress={() => { MyStore.selectableTextStyleSet({ fontFamily: "Lora-Regular" }) }} text="Lora" />
+                    <MyButton active={MyStore.selectableTextStyle.fontFamily == "Releway-Regular"} onPress={() => { MyStore.selectableTextStyleSet({ fontFamily: "Releway-Regular" }) }} text="Releway" />
                 </View>
                 <View style={rowStyle}>
                     <MyButton icon="magnifier-remove" onPress={() => {
@@ -60,10 +60,10 @@ export const BookFooter = observer(({navigation}) => {
                         MyStore.textSizeUp()
                     }} icon="magnifier-add" style={{ width: 50, flex: 0 }} type="SimpleLineIcons" />
                 </View>
-                {/* <View style={rowStyle}>
-                    <MyButton text="Dikey" />
-                    <MyButton active text="Yatay" />
-                </View> */}
+                <View style={rowStyle}>
+                    <MyButton active={!MyStore.isHorizontal} onPress={()=>MyStore.isHorizontalSet(false)} text="Dikey" />
+                    <MyButton active={MyStore.isHorizontal} onPress={()=>MyStore.isHorizontalSet(true)} text="Yatay" />
+                </View>
             </View>}
         </SafeAreaView>
     )

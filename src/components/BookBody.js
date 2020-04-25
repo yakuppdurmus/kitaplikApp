@@ -12,11 +12,12 @@ export const BookBody = observer(({ textProps, swiperOnIndexChanged, onSelection
   return (
 
     <Swiper
+      horizontal={MyStore.isHorizontal}
       loop={false}
       style={{ ...MyStore.swiperStyle }}
       index={initialPageIndex}
       showsPagination={false}
-      showsButtons
+      showsButtons={MyStore.isHorizontal}
       onIndexChanged={swiperOnIndexChanged}
       nextButton={<Icon style={{color:'white'}} name="ios-arrow-forward"/>}
       prevButton={<Icon style={{color:'white'}} name="ios-arrow-back"/>}
