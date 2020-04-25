@@ -7,7 +7,8 @@
     "ios": "react-native run-ios",
     "start": "react-native start",
     "test": "jest",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "postinstall": "jetifier -r"
   },
   "dependencies": {
     "@astrocoders/react-native-selectable-text": "git+https://github.com/yakuppdurmus/react-native-selectable-text.git",
@@ -35,6 +36,7 @@
     "babel-jest": "^25.2.6",
     "eslint": "^6.8.0",
     "jest": "^25.2.7",
+    "jetifier": "^1.6.5",
     "metro-react-native-babel-preset": "^0.59.0",
     "native-base": "^2.13.8",
     "react-native-gesture-handler": "^1.6.1",

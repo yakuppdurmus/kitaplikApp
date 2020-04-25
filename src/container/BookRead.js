@@ -27,7 +27,7 @@ export class BookRead extends Component {
 
     textProps = () => {
         let textProps = [
-            { value: lorem, highlights: [{ id: "test", start: 0, end: 18, isTitle: true }] },
+            { value: lorem, highlights: [{ id: "test", start: 0, end: 18, isTitle: true,backgroundColor:'red' }] },
             { value: "sayfa2", highlights: [{ id: "test", start: 20, end: 50, }] },
             { value: lorem, highlights: [{ id: "test", start: 792, end: 816, textStyle: { fontSize: 40, lineHeight: 40 } }] },
         ];

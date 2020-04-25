@@ -1,15 +1,18 @@
 import React from 'react'
-import { Text, View ,Image} from 'react-native'
+import { Text, View ,Image,Platform} from 'react-native'
 import {ListItem, Item} from 'native-base'
 import {imageUrl} from '../services/config'
 const onPress = (navigation, screen) => {
     navigation.navigate(screen);
 }
 
+const iosStyle = { width:'103%',marginLeft:'-2.3%',marginTop:-70,backgroundColor: '#bdc3c7', height: 300, transform: [{ rotateZ: '10deg' }, { skewX: '0deg' }] };
+const androidStyle = { width:'100%',marginTop:-70,backgroundColor: '#bdc3c7', height: 300};
+
 export const MyDrawer = ({ navigation }) => {
     return (
         <View style={{ flex: 1 }}>
-            <View style={{ width:'103%',marginLeft:'-2.3%',marginTop:-70,backgroundColor: '#bdc3c7', height: 300, transform: [{ rotateZ: '10deg' }, { skewX: '0deg' }] }} />
+            <View style={Platform.IOS ?iosStyle : androidStyle} />
             <View style={{ borderWidth: 0, borderColor: 'white',justifyContent:'center',alignItems:'center', backgroundColor: '#fff', width: 200, height: 200, borderRadius: 100, marginTop: -100, alignSelf: 'center' }}>
             <Image style={{borderWidth:0,width:188,height:188,borderRadius:100,margin:6}} resizeMode="cover" source = {{uri:imageUrl + "placeholder.jpg"}} />
             {/* <Text style={{color:'#2c3e50',fontWeight:'bold',fontSize:70}}>YD</Text> */}
