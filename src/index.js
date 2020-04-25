@@ -4,8 +4,8 @@ import Router from './Router';
 
 //Custome Theme Variable
 import { StyleProvider } from 'native-base'
-import getTheme from './assets/native-base-theme/components';
-import customTheme from './assets/native-base-theme/variables/customTheme';
+import getTheme from '../assets/native-base-theme/components';
+import customTheme from '../assets/native-base-theme/variables/customTheme';
 import FlashMessage from "react-native-flash-message";
 
 export class Container extends Component {
