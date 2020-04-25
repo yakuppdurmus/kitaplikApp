@@ -18,25 +18,45 @@ export class BookRead extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            fontSize: 20,
+            ready:true,
+            selectOnPress:0,
+            pageIndex: 0,
+            textProps: [
+                { value: lorem, highlights: [
+                    { id: "test", start: 0, end: 18, isTitle: true },
+                ] },
+                { value: lorem, highlights: [{ id: "test", start: 20, end: 50, }] },
+                { value: lorem, highlights: [{ id: "test", start: 792, end: 816, textStyle: { fontSize: 40, lineHeight: 40 } }] },
+            ],
 
         }
     }
+
+    onSelection = (select) => {
+        if (select.eventType == "İşaretle") {
+            let { textProps, pageIndex } = this.state;
+            textProps[pageIndex].highlights.push({
+                id:"test",
+                start:select.selectionStart,
+                end:select.selectionEnd,
+                
+                textStyle:{backgroundColor:'#9b59b6'}
+            });
+            this.setState({
+                textProps:textProps,
+                selectOnPress:this.state.selectOnPress+1,
+            });
+        }
+        
+        
+    }
     swiperOnIndexChanged = (pageIndex) => {
+
+        this.setState({ pageIndex: pageIndex });
     }
 
-    textProps = () => {
-        let textProps = [
-            { value: lorem, highlights: [{ id: "test", start: 0, end: 18, isTitle: true }] },
-            { value: "sayfa2", highlights: [{ id: "test", start: 20, end: 50, }] },
-            { value: lorem, highlights: [{ id: "test", start: 792, end: 816, textStyle: { fontSize: 40, lineHeight: 40 } }] },
-        ];
-        return textProps;
-    }
-    onSelection = (select) => {
-        console.log(select);
-    }
     render() {
+        if(!this.state.ready) return <View/>
 
         return (
             <View style={{
@@ -44,13 +64,14 @@ export class BookRead extends Component {
                 backgroundColor: '#222',
                 ...MyStore.textContainerStyle
             }}>
-                <SafeAreaView style={{flex:1,paddingBottom:0,marginBottom:0}}>
-                <BookBody
-                    textProps={this.textProps()}
-                    swiperOnIndexChanged={this.swiperOnIndexChanged}
-                    onSelection={this.onSelection}
-                    initialPageIndex={0}
-                />
+                <SafeAreaView style={{ flex: 1, paddingBottom: 0, marginBottom: 0 }}>
+                    <BookBody
+                        textProps={this.state.textProps}
+                        swiperOnIndexChanged={this.swiperOnIndexChanged}
+                        onSelection={this.onSelection}
+                        initialPageIndex={0}
+                        selectOnPress={this.state.selectOnPress}
+                    />
                 </SafeAreaView>
                 <BookFooter navigation={this.props.navigation} />
             </View>

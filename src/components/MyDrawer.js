@@ -12,7 +12,7 @@ const androidStyle = { width:'100%',marginTop:-70,backgroundColor: '#bdc3c7', he
 export const MyDrawer = ({ navigation }) => {
     return (
         <View style={{ flex: 1 }}>
-            <View style={Platform.IOS ?iosStyle : androidStyle} />
+            <View style={Platform.OS == 'ios' ?iosStyle : androidStyle} />
             <View style={{ borderWidth: 0, borderColor: 'white',justifyContent:'center',alignItems:'center', backgroundColor: '#fff', width: 200, height: 200, borderRadius: 100, marginTop: -100, alignSelf: 'center' }}>
             <Image style={{borderWidth:0,width:188,height:188,borderRadius:100,margin:6}} resizeMode="cover" source = {{uri:imageUrl + "placeholder.jpg"}} />
             {/* <Text style={{color:'#2c3e50',fontWeight:'bold',fontSize:70}}>YD</Text> */}

@@ -1,4 +1,4 @@
-import React from 'react'
+import React,{useEffect} from 'react'
 import { Text, View, ScrollView } from 'react-native'
 import { SelectableText } from "@astrocoders/react-native-selectable-text";
 import Swiper from 'react-native-swiper'
@@ -7,8 +7,14 @@ import { observer } from 'mobx-react';
 import MyStore from '../services/MyStore';
 
 
-export const BookBody = observer(({ textProps, swiperOnIndexChanged, onSelection, menuItems,initialPageIndex }) => {
+export const BookBody = observer(({ textProps, swiperOnIndexChanged, onSelection, menuItems,selectOnPress,initialPageIndex }) => {
   textProps = Array.isArray(textProps) ? textProps : [];
+
+
+  useEffect(() => {
+    console.log('count changed');
+}, [selectOnPress])
+
   return (
 
     <Swiper
@@ -33,6 +39,7 @@ export const BookBody = observer(({ textProps, swiperOnIndexChanged, onSelection
             onSelection={onSelection}
             highlights={highlights} // [{ id: "test", start: 20, end: 50, backgroundColor: '#a0a' }]
             menuItems={menuItems}
+            selectOnPress={selectOnPress}
           />
         )
 
@@ -42,9 +49,15 @@ export const BookBody = observer(({ textProps, swiperOnIndexChanged, onSelection
 })
 
 // const Timer = observer(({ timerData }) =>
-const BookPage = observer(({ textContentContainerStyle, textSubContainerStyle, value, onSelection, highlights, menuItems }) => {
+const BookPage = observer(({ textContentContainerStyle, textSubContainerStyle, value, onSelection, highlights, menuItems,selectOnPress }) => {
+
+  useEffect(() => {
+    console.log('count changed');
+}, [selectOnPress])
+
   return (
     <ScrollView
+      nestedScrollEnabled
       showsVerticalScrollIndicator={false}
       contentContainerStyle={{
         paddingLeft: 30,

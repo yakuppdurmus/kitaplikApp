@@ -15,9 +15,9 @@ export const BookFooter = observer(({ navigation }) => {
     const [isShow, setIsShow] = useState(false);
     return (
         <SafeAreaView style={{ backgroundColor: backgroundColor, minHeight: 0 }}>
-            <View style={{ backgroundColor: 'transparent', paddingLeft: 15, flexDirection: 'row', justifyContent: 'space-between', paddingRight: 15 }}>
-                <TouchableOpacity onPress={() => navigation.goBack()}><Icon style={{ fontSize: 40 }} name={"ios-arrow-back"} /></TouchableOpacity>
-                <TouchableOpacity onPress={() => setIsShow(!isShow)}><Icon style={{ fontSize: 40 }} name={isShow ? "ios-arrow-down" : "ios-arrow-up"} /></TouchableOpacity>
+            <View style={{ backgroundColor: 'transparent', flexDirection: 'row',justifyContent: 'space-between' }}>
+                <TouchableOpacity style={{paddingLeft:20,paddingRight:40}} onPress={() => navigation.goBack()}><Icon style={{ fontSize: 40 }} name={"ios-arrow-back"} /></TouchableOpacity>
+                <TouchableOpacity style={{paddingLeft:40,paddingRight:20}} onPress={() => setIsShow(!isShow)}><Icon style={{ fontSize: 40 }} name={isShow ? "ios-arrow-down" : "ios-arrow-up"} /></TouchableOpacity>
 
             </View>
             {isShow && <View>
@@ -37,7 +37,7 @@ export const BookFooter = observer(({ navigation }) => {
                     <MyButton active={MyStore.selectableTextStyle.fontFamily == "Andada-Regular"} onPress={() => { MyStore.selectableTextStyleSet({ fontFamily: "Andada-Regular" }) }} text="Andada" />
                     <MyButton active={MyStore.selectableTextStyle.fontFamily == "Lato-Regular"} onPress={() => { MyStore.selectableTextStyleSet({ fontFamily: "Lato-Regular" }) }} text="Lato" />
                     <MyButton active={MyStore.selectableTextStyle.fontFamily == "Lora-Regular"} onPress={() => { MyStore.selectableTextStyleSet({ fontFamily: "Lora-Regular" }) }} text="Lora" />
-                    <MyButton active={MyStore.selectableTextStyle.fontFamily == "Releway-Regular"} onPress={() => { MyStore.selectableTextStyleSet({ fontFamily: "Releway-Regular" }) }} text="Releway" />
+                    <MyButton active={MyStore.selectableTextStyle.fontFamily == "Raleway-Regular"} onPress={() => { MyStore.selectableTextStyleSet({ fontFamily: "Raleway-Regular" }) }} text="Releway" />
                 </View>
                 <View style={rowStyle}>
                     <MyButton icon="magnifier-remove" onPress={() => {
