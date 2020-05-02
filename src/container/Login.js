@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { View, } from 'react-native'
-import {  login, loginAnonymous } from '../services'
+import {  login, guestLogin,books } from '../services'
 import { LoginForm , AppBackground} from '../components';
 
 
@@ -13,21 +13,42 @@ export class Login extends Component {
     onSubmit = async (model) => {
 
         this.setState({lock:true});
-        const response = await login(model,(data)=>alert(data));
-        if(response.user._user.isAnonymous == false){
-            this.props.navigation.navigate('Home');
+        const response = await login(model);
+        if(!response){
+            console.log("Response boş");
+            this.setState({lock:false});
+            return;
         }
-        this.setState({lock:false});
+
+        if(response.status){
+            this.props.navigation.navigate('Home');
+        }else{
+            console.log("Response" ,response);
+            alert(response.message);
+            this.setState({lock:false});
+        }
+        
     }
     onSubmitAnonymous= async ()=>{
+
         this.setState({lockAnonymous:true});
-        const response = await loginAnonymous();
-        if(response.user._user.isAnonymous == true){
+        const response = await guestLogin({deviceId:"androidioddeviceid"});
+        if(!response){
+            console.log("Response boş");
+            this.setState({lockAnonymous:false});
+            return;
+        }
+
+        if(response.status){
             this.props.navigation.navigate('Home');
+        }else{
+            console.log("Response" ,response);
+            alert(response.message);
+            this.setState({lockAnonymous:false});
         }
         this.setState({lockAnonymous:false});
 
-
+        
     }
 
     render() {

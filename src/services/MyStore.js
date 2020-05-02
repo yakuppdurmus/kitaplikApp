@@ -1,5 +1,4 @@
 import { observable, action, configure, autorun, reaction, runInAction } from 'mobx'
-import { StyleSheet } from 'react-native'
 //actions kullanımına zorlar
 configure({
     enforceActions: "observed"

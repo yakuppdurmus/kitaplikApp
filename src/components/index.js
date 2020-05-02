@@ -17,6 +17,7 @@ import  {FullButton} from './FullButton';
 import  {Banner} from './Banner';
 import  {BookBody} from './BookBody';
 import  {BookFooter} from './BookFooter';
+import  {Loader} from './Loader';
 
 export {
     AppBackground,
@@ -38,5 +39,6 @@ export {
     FullButton,
     Banner,
     BookBody,
-    BookFooter
+    BookFooter,
+    Loader
 }

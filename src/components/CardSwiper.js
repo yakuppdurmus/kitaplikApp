@@ -18,8 +18,8 @@ const Title = ({ categoryId, title, isAll, onPressAll }) => {
 }
 
 
-
-export const CardSwiper = ({ items, onPressBookMark, onPressCard, title, categoryId, onPressAll, isAll, ready }) => {
+export const CardSwiper = ({items, onPressFavorite, onPressCard, title, categoryId, onPressAll, isAll, ready}) => { 
+       
     return (
         <View style={{ backgroundColor: '#fff', paddingTop: 10, paddingBottom: 20, borderBottomWidth: 1, borderColor: '#ddd' }}>
             <Title title={title} isAll={isAll} categoryId={categoryId} onPressAll={onPressAll} />
@@ -30,7 +30,7 @@ export const CardSwiper = ({ items, onPressBookMark, onPressCard, title, categor
                     showsHorizontalScrollIndicator={false}
                     data={items}
                     keyExtractor={(item) => item.index}
-                    renderItem={(item) => CardSwiperItem(item,onPressBookMark, onPressCard)}
+                    renderItem={(item) => CardSwiperItem(item,onPressFavorite, onPressCard)}
                 />
             </View>
         </View>
@@ -38,7 +38,8 @@ export const CardSwiper = ({ items, onPressBookMark, onPressCard, title, categor
 }
 
 
-const CardSwiperItem = ({ item, index },onPressBookMark, onPressCard) => {
+const CardSwiperItem = ({ item, index },onPressFavorite, onPressCard) => {
+
     return (
         <MyCard key={"cardbox_" + index} style={{ padding: 0, marginLeft: 10, width: 150 }}>
             <TouchableOpacity
@@ -52,11 +53,11 @@ const CardSwiperItem = ({ item, index },onPressBookMark, onPressCard) => {
                 <View style={{flexDirection:'row',position: 'absolute', right: 5,top:5, backgroundColor: 'rgba(255, 255, 255, 0.5)'}}>
 
                 
-                    {item.isFree == false && <View style={{ width: 30, height: 30, justifyContent: 'center', alignItems: 'center', borderRadius: 5, }}>
+                    {item.isFree == true && <View style={{ width: 30, height: 30, justifyContent: 'center', alignItems: 'center', borderRadius: 5, }}>
                         <Icon style={{ fontSize: 25 }}
                             type="MaterialIcons" name="money-off" />
                     </View>}
-                    {item.isListen && <View style={{ width: 30, height: 30, justifyContent: 'center', alignItems: 'center', borderRadius: 5, }}>
+                    {item.isListen == true && <View style={{ width: 30, height: 30, justifyContent: 'center', alignItems: 'center', borderRadius: 5, }}>
                         <Icon style={{ fontSize: 25 }}
                             type="MaterialCommunityIcons" name="headphones" />
                     </View>}
@@ -68,14 +69,14 @@ const CardSwiperItem = ({ item, index },onPressBookMark, onPressCard) => {
 
                 <View style={{ height: 100, padding: 10 }}>
                     <TouchableOpacity
-                        onPress={() => onPressBookMark && onPressBookMark(item.id)}
+                        onPress={() => onPressFavorite && onPressFavorite(item.id)}
                         style={{ top: 5, right: 0, paddingLeft: 5, paddingRight: 5, position: 'absolute', zIndex: 5 }}>
                         <Icon
                             type="MaterialIcons"
                             style={{ color: '#555' }}
-                            name={item.isBookMark ? "bookmark" : "bookmark-border"} />
+                            name={item.isFavorite == true ? "bookmark" : "bookmark-border"} />
                     </TouchableOpacity>
-                    <Text style={{ paddingRight: 20, fontWeight: '500', marginBottom: 5 }}>{item.title}</Text>
+                    <Text style={{ paddingRight: 20, fontWeight: '500', marginBottom: 5 }}>{item.bookName}</Text>
                     <Text style={{ fontSize: 14 }}>{item.author}</Text>
                 </View>
             </TouchableOpacity>
@@ -117,7 +118,7 @@ const ImageSwiperItem = ({ item, index }, onPressCard) => {
                         uri: item.image ? item.image : imageUrl+'film.jpg',
                     }}
                 />
-                <Text style={{ position: 'absolute', color: 'white', zIndex: 3, paddingTop: 5, width: '100%', fontWeight: '700' }}>{item.title}</Text>
+                <Text style={{ position: 'absolute', color: 'white', zIndex: 3, paddingTop: 5, width: '100%', fontWeight: '700' }}>{item.categoryName}</Text>
             </TouchableOpacity>
         </MyCard>
     )

@@ -5,10 +5,10 @@ import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view
 import { AppInput } from './AppInput';
 var Spinner = require('react-native-spinkit');
 
-export const LoginForm = ({ onSubmit, lock, onSubmitAnonymous,lockAnonymous,goRegister }) => {
+export const LoginForm = ({ onSubmit, lock, onSubmitAnonymous, lockAnonymous, goRegister }) => {
 
-    const [email, setEmail] = useState("test@test.test");
-    const [password, setPassword] = useState("test123");
+    const [email, setEmail] = useState("admin");
+    const [password, setPassword] = useState("1234");
 
     return (
 
@@ -20,6 +20,7 @@ export const LoginForm = ({ onSubmit, lock, onSubmitAnonymous,lockAnonymous,goRe
 
                 <AppInput
                     reqired
+                    autoCapitalize='none'
                     input={email}
                     inputChange={(input) => { setEmail(input) }}
                     title="Email" />
@@ -41,17 +42,17 @@ export const LoginForm = ({ onSubmit, lock, onSubmitAnonymous,lockAnonymous,goRe
                         <Spinner isVisible={!!lock} size={30} type={"Wave"} color={"white"} />
                     </Button>
                 </View>
-                <View style={{flexDirection:'row'}}>
-                <Button style={{flex:1}} onPress={() => goRegister()} transparent full>
-                    <Text style={{ fontFamily: 'Montserrat-Regular',fontWeight:'300' }}>Kayıt Ol</Text>
-                </Button>
-               <Text style={{justifyContent:'center',alignSelf:'center',color:'white'}}>|</Text>
-                <Button style={{flex:1}} onPress={() => onSubmitAnonymous()} transparent full>
-                    {!lockAnonymous && <Text style={{ fontFamily: 'Montserrat-Regular',fontWeight:'300' }}>Üyeliksiz Giriş</Text>}
-                    <Spinner isVisible={!!lockAnonymous} size={30} type={"Wave"} color={"white"} />
-                </Button>
+                <View style={{ flexDirection: 'row' }}>
+                    <Button style={{ flex: 1 }} onPress={() => goRegister()} transparent full>
+                        <Text style={{ fontFamily: 'Montserrat-Regular', fontWeight: '300' }}>Kayıt Ol</Text>
+                    </Button>
+                    <Text style={{ justifyContent: 'center', alignSelf: 'center', color: 'white' }}>|</Text>
+                    <Button style={{ flex: 1 }} onPress={() => onSubmitAnonymous()} transparent full>
+                        {!lockAnonymous && <Text style={{ fontFamily: 'Montserrat-Regular', fontWeight: '300' }}>Üyeliksiz Giriş</Text>}
+                        <Spinner isVisible={!!lockAnonymous} size={30} type={"Wave"} color={"white"} />
+                    </Button>
                 </View>
-                
+
 
             </KeyboardAwareScrollView>
         </View>

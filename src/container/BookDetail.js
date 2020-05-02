@@ -1,21 +1,22 @@
 import React, { Component } from 'react'
 import { View, Image, TouchableOpacity, ScrollView } from 'react-native'
 import { Text, Button } from 'native-base'
-import { MyHeader, HashButton, FullButton } from '../components'
-import {imageUrl} from '../services/config'
+import { MyHeader, HashButton, FullButton, Loader } from '../components'
+import { imageUrl } from '../services/config'
+import { bookDetail } from '../services'
 
 
-const BookItem = () => {
+const BookItem = ({ image, bookName, author }) => {
     return (
         <View style={{ flexDirection: 'row' }}>
-            {console.log(imageUrl+'bg1-50.jpg')}
+            {/* {console.log(imageUrl + 'bg1-50.jpg')} */}
             <Image
-                source={{uri:imageUrl+'placeholder.jpg'}}
+                source={{ uri: image ? image : (imageUrl + 'placeholder.jpg') }}
                 style={{ width: 100, height: 100, borderRadius: 5 }}
             />
             <View style={{ flex: 1, justifyContent: 'space-around', paddingLeft: 10 }}>
-                <Text style={{ fontSize: 14, fontWeight: '600' }}>Mucize Bilinçaltını Bilinçli Yönet</Text>
-                <Text style={{ fontSize: 12, color: '#555' }}>Adil Maviş</Text>
+                <Text style={{ fontSize: 14, fontWeight: '600' }}>{bookName}</Text>
+                <Text style={{ fontSize: 12, color: '#555' }}>{author}</Text>
             </View>
 
         </View>
@@ -23,30 +24,69 @@ const BookItem = () => {
 }
 
 export class BookDetail extends Component {
+
+    constructor(props) {
+        super(props);
+        this.state = {
+            ready: false,
+            bookId: this.props.navigation.getParam('bookId'),
+        }
+    }
+    componentDidMount() {
+        this.requestData();
+    }
+    async requestData() {
+
+        await this.getBookDetail()
+    }
+    async getBookDetail() {
+        //Kitap detay request
+        const response = await bookDetail(this.state.bookId);
+        console.log("RESPONSE bookDetail : ", response, this.state.bookId);
+
+        if (!response) {
+            console.log("Response boş");
+            this.setState({ ready: false });
+            return;
+        }
+
+        if (response.status) {
+            this.setState({ book: response.data });
+            this.setState({ ready: true });
+        } else {
+            console.log("Response", response);
+            alert(response.message);
+            this.setState({ ready: false });
+        }
+    }
+
     render() {
+
+        if (!this.state.ready) return <Loader/>
+        let { bookName, id, description, image, author } = this.state.book;
+
         return (
             <View style={{ flex: 1 }}>
                 <MyHeader
                     back
                     navigation={this.props.navigation}
-                    text="Kitap Adı" />
+                    text={bookName} />
 
                 <ScrollView contentContainerStyle={{ padding: 20, paddingBottom: 40 }}>
-                    <BookItem />
-                    <FullButton onPress={()=>{
-                        this.props.navigation.navigate('BookRead');
+                    <BookItem
+                        image={image}
+                        bookName={bookName}
+                        author={author} />
+                    <FullButton onPress={() => {
+                        this.props.navigation.navigate('BookRead', { bookId: id });
                     }} text="Bu kitabı şimdi oku!" />
-                    <Text style={{ marginTop: 20, marginBottom: 20, fontWeight: '600', fontSize: 20 }}>Sinopsis</Text>
+                    <Text style={{ marginTop: 20, marginBottom: 20, fontWeight: '600', fontSize: 20 }}>Açıklama</Text>
                     <Text>
-                        Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.
-                    </Text>
-
-                    <Text style={{ marginTop: 10 }}>
-                        Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.
+                        {description}
                     </Text>
                     <Text style={{ marginTop: 20, marginBottom: 20, fontWeight: '600', fontSize: 20 }}>Etiketler</Text>
 
-                    <ScrollView showsHorizontalScrollIndicator={false}  horizontal contentContainerStyle={{paddingBottom:10,paddingTop:10}}>
+                    <ScrollView showsHorizontalScrollIndicator={false} horizontal contentContainerStyle={{ paddingBottom: 10, paddingTop: 10 }}>
                         <HashButton
                             text="Eğitim"
                         />
