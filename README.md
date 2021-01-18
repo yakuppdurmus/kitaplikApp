@@ -2,20 +2,20 @@
 [![badge](https://api.rnfirebase.io/coverage/ml-vision/badge)]()  
 Kitaplık App ile uygulama içerisinde çevrimiçi / çevrim dışı kitap okuyabilir. Okurken metin üzerinde notlar alabilir ve kitaptan seçilen metinleri sosyal medya üzerinde paylaşabilirsiniz.
 
-<img src="https://github.com/yakuppdurmus/kitaplikApp/blob/master/src/assets/images/login2.png?raw=true" width="400" />
-<img src="https://raw.githubusercontent.com/yakuppdurmus/kitaplikApp/master/src/assets/images/register.png" width="400" />
-<img src="https://raw.githubusercontent.com/yakuppdurmus/kitaplikApp/master/src/assets/images/anasayfa3.png" width="400" />
-<img src="https://raw.githubusercontent.com/yakuppdurmus/kitaplikApp/master/src/assets/images/anasayfa4.png" width="400" />
-<img src="https://raw.githubusercontent.com/yakuppdurmus/kitaplikApp/master/src/assets/images/readDetail.png" width="400" />
-<img src="https://raw.githubusercontent.com/yakuppdurmus/kitaplikApp/master/src/assets/images/readwight.png" width="400" />
-<img src="https://raw.githubusercontent.com/yakuppdurmus/kitaplikApp/master/src/assets/images/readblack.png" width="400" />
-<img src="https://raw.githubusercontent.com/yakuppdurmus/kitaplikApp/master/src/assets/images/readselect.png" width="400" />
-<img src="https://raw.githubusercontent.com/yakuppdurmus/kitaplikApp/master/src/assets/images/profil.png" width="400" />
-<img src="https://raw.githubusercontent.com/yakuppdurmus/kitaplikApp/master/src/assets/images/drawer.png" width="400" />
-<img src="https://raw.githubusercontent.com/yakuppdurmus/kitaplikApp/master/src/assets/images/libraryEmpty.png" width="400" />
-<img src="https://raw.githubusercontent.com/yakuppdurmus/kitaplikApp/master/src/assets/images/categories.png" width="400" />
-<img src="https://raw.githubusercontent.com/yakuppdurmus/kitaplikApp/master/src/assets/images/search.png" width="400" />
-<img src="https://raw.githubusercontent.com/yakuppdurmus/kitaplikApp/master/src/assets/images/searchEmpty.png" width="400" />
+<img src="https://github.com/yakuppdurmus/kitaplikApp/blob/master/src/assets/images/login2.png?raw=true" width="300" />
+<img src="https://raw.githubusercontent.com/yakuppdurmus/kitaplikApp/master/src/assets/images/register.png" width="300" />
+<img src="https://raw.githubusercontent.com/yakuppdurmus/kitaplikApp/master/src/assets/images/anasayfa3.png" width="300" />
+<img src="https://raw.githubusercontent.com/yakuppdurmus/kitaplikApp/master/src/assets/images/anasayfa4.png" width="300" />
+<img src="https://raw.githubusercontent.com/yakuppdurmus/kitaplikApp/master/src/assets/images/readDetail.png" width="300" />
+<img src="https://raw.githubusercontent.com/yakuppdurmus/kitaplikApp/master/src/assets/images/readwight.png" width="300" />
+<img src="https://raw.githubusercontent.com/yakuppdurmus/kitaplikApp/master/src/assets/images/readblack.png" width="300" />
+<img src="https://raw.githubusercontent.com/yakuppdurmus/kitaplikApp/master/src/assets/images/readselect.png" width="300" />
+<img src="https://raw.githubusercontent.com/yakuppdurmus/kitaplikApp/master/src/assets/images/profil.png" width="300" />
+<img src="https://raw.githubusercontent.com/yakuppdurmus/kitaplikApp/master/src/assets/images/drawer.png" width="300" />
+<img src="https://raw.githubusercontent.com/yakuppdurmus/kitaplikApp/master/src/assets/images/libraryEmpty.png" width="300" />
+<img src="https://raw.githubusercontent.com/yakuppdurmus/kitaplikApp/master/src/assets/images/categories.png" width="300" />
+<img src="https://raw.githubusercontent.com/yakuppdurmus/kitaplikApp/master/src/assets/images/search.png" width="300" />
+<img src="https://raw.githubusercontent.com/yakuppdurmus/kitaplikApp/master/src/assets/images/searchEmpty.png" width="300" />
 ### Teknoloji ve Paketler
 
 - React Navigation
